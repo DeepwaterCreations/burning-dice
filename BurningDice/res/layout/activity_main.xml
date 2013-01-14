@@ -11,6 +11,89 @@
         android:text="@string/hello_world"
         tools:context=".MainActivity" />
 
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/qroll1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1" />
+
+        <Button
+            android:id="@+id/qroll2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/qroll1"
+            android:text="2" />
+
+        <Button
+            android:id="@+id/qroll3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/qroll2"
+            android:text="3" />
+
+        <Button
+            android:id="@+id/qroll4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/qroll3"
+            android:text="4" />
+
+        <Button
+            android:id="@+id/qroll5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/qroll4"
+            android:text="5" />
+
+        <Button
+            android:id="@+id/qroll6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/qroll1"
+            android:text="6" />
+        
+        <Button
+            android:id="@+id/qroll7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/qroll2"
+            android:layout_toLeftOf="@+id/qroll3"
+            android:text="7" />
+        
+        <Button
+            android:id="@+id/qroll8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/qroll3"
+            android:layout_toLeftOf="@+id/qroll4"
+            android:text="8" />
+
+        <Button
+            android:id="@+id/qroll9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/qroll4"
+            android:layout_toLeftOf="@+id/qroll5"
+            android:text="9" />
+
+        <Button
+            android:id="@+id/qroll10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/qroll4"
+            android:layout_toRightOf="@+id/qroll4"
+            android:text="10" />
+
+
+    </RelativeLayout>
+
     <EditText
         android:id="@+id/diceNum"
         android:layout_width="fill_parent"
@@ -21,6 +104,7 @@
         android:id="@+id/roll"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/button_label"/>
+        android:text="@string/button_label"
+        android:onClick="makeRoll" />
 
 </LinearLayout>

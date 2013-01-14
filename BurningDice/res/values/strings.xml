@@ -5,5 +5,8 @@
     <string name="button_label">Roll</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">Burning Dice</string>
+    <string name="title_activity_rolldisplay">Burning Dice: Roll Results</string>
+    <string name="title_activity_roll_display">RollDisplayActivity</string>
+ 
 
 </resources>

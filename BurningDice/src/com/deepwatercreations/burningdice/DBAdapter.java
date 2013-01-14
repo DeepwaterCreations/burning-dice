@@ -71,7 +71,7 @@ public class DBAdapter {
 	//Insert a value into the database
 	public long logRoll(RollResults results){
 		ContentValues initialValues = new ContentValues();
-		initialValues.put("numDice", /*results.getNumDice()*/); //HEY, LISTEN! Can I store the object as a blob? Should I? 
+		//initialValues.put("numDice" /*results.getNumDice()*/); //HEY, LISTEN! Can I store the object as a blob? Should I? 
 		return db.insert(DATABASE_TABLE, null, initialValues);
 	}
 	

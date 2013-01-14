@@ -1,9 +1,12 @@
 package com.deepwatercreations.burningdice;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class RollResults {
+public class RollResults implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private Random dicebag;
 	
