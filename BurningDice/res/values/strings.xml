@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="app_name">Burning Dice</string>
@@ -7,6 +8,6 @@
     <string name="title_activity_main">Burning Dice</string>
     <string name="title_activity_rolldisplay">Burning Dice: Roll Results</string>
     <string name="title_activity_roll_display">RollDisplayActivity</string>
- 
+    <string name="title_activity_roll_build">RollBuildActivity</string>
 
 </resources>

@@ -27,90 +27,103 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        Button buttonq1 = (Button) findViewById(R.id.qroll1);
+        buttonq1.setOnClickListener(mAddListener);
+        Button buttonq2 = (Button) findViewById(R.id.qroll2);
+        buttonq2.setOnClickListener(mAddListener);
+        Button buttonq3 = (Button) findViewById(R.id.qroll3);
+        buttonq3.setOnClickListener(mAddListener);
+        Button buttonq4 = (Button) findViewById(R.id.qroll4);
+        buttonq4.setOnClickListener(mAddListener);
+        Button buttonq5 = (Button) findViewById(R.id.qroll5);
+        buttonq5.setOnClickListener(mAddListener);
+        Button buttonq6 = (Button) findViewById(R.id.qroll6);
+        buttonq6.setOnClickListener(mAddListener);
+        Button buttonq7 = (Button) findViewById(R.id.qroll7);
+        buttonq7.setOnClickListener(mAddListener);
+        Button buttonq8 = (Button) findViewById(R.id.qroll8);
+        buttonq8.setOnClickListener(mAddListener);
+        Button buttonq9 = (Button) findViewById(R.id.qroll9);
+        buttonq9.setOnClickListener(mAddListener);
+        Button buttonq10 = (Button) findViewById(R.id.qroll10);
+        buttonq10.setOnClickListener(mAddListener);
+        
+        
         Button buttonRoll = (Button)findViewById(R.id.roll);
-       // buttonRoll.setOnClickListener(mAddListener);
+        buttonRoll.setOnClickListener(mAddListener);
     }
 
-//    private OnClickListener mAddListener = new OnClickListener(){
-//    	public void onClick(View v){
-//    		RollResults results;
-//    		
-//    		switch(v.getId()){
-//    		
-//    		case R.id.qroll1:
-//    			results = new RollBuilder(1).buildRoll();
-//    			break;
-//    		case R.id.qroll2:
-//    			results = new RollBuilder(2).buildRoll();
-//    			break;
-//    		case R.id.qroll3:
-//        		results = new RollBuilder(3).buildRoll();
-//        		break;
-//    		case R.id.qroll4:
-//    			results = new RollBuilder(4).buildRoll();
-//    			break;
-//    		case R.id.qroll5:
-//    			results = new RollBuilder(5).buildRoll();
-//    			break;
-//    		case R.id.qroll6:
-//    			results = new RollBuilder(6).buildRoll();
-//    			break;
-//    		case R.id.qroll7:
-//    			results = new RollBuilder(7).buildRoll();
-//    			break;
-//    		case R.id.qroll8:
-//    			results = new RollBuilder(8).buildRoll();
-//    			break;
-//    		case R.id.qroll9:
-//    			results = new RollBuilder(9).buildRoll();
-//    			break;
-//    		case R.id.qroll10:
-//    			results = new RollBuilder(10).buildRoll();
-//    			break;
-//        	
-//    		
-////    		case R.id.roll:
-////    			db.open();
-////    			long id = 0;
-////        		try{
-////        			diceNumTxt = (EditText)findViewById(R.id.diceNum);
-////        			int diceNum = Integer.parseInt(diceNumTxt.getText().toString());
-////        			
-////        			results = new RollBuilder(diceNum).buildRoll();
-////        			
-//////        			db.logRoll(results);
-//////        			id = db.getEntriesCount();
-//////        			
-//////        			Context context = getApplicationContext();
-//////        			CharSequence text = "You got " + results.getNumSuccesses() + " successes on " + results.getTotalDice() + " dice!";
-//////        			int duration = Toast.LENGTH_LONG;
-//////        			Toast toast = Toast.makeText(context, text, duration);
-//////        			toast.show();
-////        			
-////        			
-////        			
-////        			diceNumTxt.setText("");
-////        		}
-////        		catch(Exception fit){
-////        			Context context = getApplicationContext();
-////        			CharSequence text = fit.toString() + "ID= " + id;
-////        			int duration = Toast.LENGTH_LONG;
-////        			Toast toast = Toast.makeText(context, text, duration);
-////        			toast.show();
-////        		}
-////        		db.close();
-////        		break;
-//    		}
-//    		
-//    	}
-//    };
+    private OnClickListener mAddListener = new OnClickListener(){
+    	public void onClick(View v){
+    		RollResults results;
+    		
+    		switch(v.getId()){
+    		
+    		//Dang, there has got to be a better way to do this!
+    		case R.id.qroll1:
+    			results = new RollBuilder(1).buildRoll();
+    			makeRoll(results);
+    			break;
+    		case R.id.qroll2:
+    			results = new RollBuilder(2).buildRoll();
+    			makeRoll(results);
+    			break;
+    		case R.id.qroll3:
+        		results = new RollBuilder(3).buildRoll();
+        		makeRoll(results);
+        		break;
+    		case R.id.qroll4:
+    			results = new RollBuilder(4).buildRoll();
+    			makeRoll(results);
+    			break;
+    		case R.id.qroll5:
+    			results = new RollBuilder(5).buildRoll();
+    			makeRoll(results);
+    			break;
+    		case R.id.qroll6:
+    			results = new RollBuilder(6).buildRoll();
+    			makeRoll(results);
+    			break;
+    		case R.id.qroll7:
+    			results = new RollBuilder(7).buildRoll();
+    			makeRoll(results);
+    			break;
+    		case R.id.qroll8:
+    			results = new RollBuilder(8).buildRoll();
+    			makeRoll(results);
+    			break;
+    		case R.id.qroll9:
+    			results = new RollBuilder(9).buildRoll();
+    			makeRoll(results);
+    			break;
+    		case R.id.qroll10:
+    			results = new RollBuilder(10).buildRoll();
+    			makeRoll(results);
+    			break;
+        	
+    		
+    		case R.id.roll:
+    			diceNumTxt = (EditText)findViewById(R.id.diceNum);
+    			try{
+	    			int diceNum = Integer.parseInt(diceNumTxt.getText().toString());
+	    			results = new RollBuilder(diceNum).buildRoll();
+	    			diceNumTxt.setText("");
+	    			makeRoll(results);
+    			}
+    			catch(NumberFormatException integertantrum){
+    				//Um... I have no idea what to put here!
+    				//Ideally, I should alert the user that they've done it wrong,
+    				//but I need another try/catch to throw up a toast. Right?
+    			}
+        		break;
+    		}
+    		
+    	}
+    };
     
-    public void makeRoll(View view){
-    	Intent intent = new Intent(this, RollDisplayActivity.class); 
-    	diceNumTxt = (EditText)findViewById(R.id.diceNum);
-		int diceNum = Integer.parseInt(diceNumTxt.getText().toString());
-		RollResults results = new RollBuilder(diceNum).buildRoll();
-		
+    public void makeRoll(RollResults results){
+    	Intent intent = new Intent(this, RollDisplayActivity.class); 		
 		intent.putExtra(EXTRA_ROLLRESULTS, results);
 		startActivity(intent);
     }
