@@ -56,50 +56,50 @@ public class MainActivity extends Activity {
 
     private OnClickListener mAddListener = new OnClickListener(){
     	public void onClick(View v){
-    		RollResults results;
+    		Roll roll;
     		
     		switch(v.getId()){
     		
     		//Dang, there has got to be a better way to do this!
     		case R.id.qroll1:
-    			results = new RollBuilder(1).buildRoll();
-    			makeRoll(results);
+    			roll = new Roll(1);
+    			makeRoll(roll);
     			break;
     		case R.id.qroll2:
-    			results = new RollBuilder(2).buildRoll();
-    			makeRoll(results);
+    			roll = new Roll(2);
+    			makeRoll(roll);
     			break;
     		case R.id.qroll3:
-        		results = new RollBuilder(3).buildRoll();
-        		makeRoll(results);
+        		roll = new Roll(3);
+        		makeRoll(roll);
         		break;
     		case R.id.qroll4:
-    			results = new RollBuilder(4).buildRoll();
-    			makeRoll(results);
+    			roll = new Roll(4);
+    			makeRoll(roll);
     			break;
     		case R.id.qroll5:
-    			results = new RollBuilder(5).buildRoll();
-    			makeRoll(results);
+    			roll = new Roll(5);
+    			makeRoll(roll);
     			break;
     		case R.id.qroll6:
-    			results = new RollBuilder(6).buildRoll();
-    			makeRoll(results);
+    			roll = new Roll(6);
+    			makeRoll(roll);
     			break;
     		case R.id.qroll7:
-    			results = new RollBuilder(7).buildRoll();
-    			makeRoll(results);
+    			roll = new Roll(7);
+    			makeRoll(roll);
     			break;
     		case R.id.qroll8:
-    			results = new RollBuilder(8).buildRoll();
-    			makeRoll(results);
+    			roll = new Roll(8);
+    			makeRoll(roll);
     			break;
     		case R.id.qroll9:
-    			results = new RollBuilder(9).buildRoll();
-    			makeRoll(results);
+    			roll = new Roll(9);
+    			makeRoll(roll);
     			break;
     		case R.id.qroll10:
-    			results = new RollBuilder(10).buildRoll();
-    			makeRoll(results);
+    			roll = new Roll(10);
+    			makeRoll(roll);
     			break;
         	
     		
@@ -107,9 +107,9 @@ public class MainActivity extends Activity {
     			diceNumTxt = (EditText)findViewById(R.id.diceNum);
     			try{
 	    			int diceNum = Integer.parseInt(diceNumTxt.getText().toString());
-	    			results = new RollBuilder(diceNum).buildRoll();
+	    			roll = new Roll(diceNum);
 	    			diceNumTxt.setText("");
-	    			makeRoll(results);
+	    			makeRoll(roll);
     			}
     			catch(NumberFormatException integertantrum){
     				//Um... I have no idea what to put here!
@@ -122,9 +122,10 @@ public class MainActivity extends Activity {
     	}
     };
     
-    public void makeRoll(RollResults results){
+    public void makeRoll(Roll roll){
+    	roll.doRoll();
     	Intent intent = new Intent(this, RollDisplayActivity.class); 		
-		intent.putExtra(EXTRA_ROLLRESULTS, results);
+		intent.putExtra(EXTRA_ROLLRESULTS, roll);
 		startActivity(intent);
     }
      

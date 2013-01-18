@@ -28,5 +28,24 @@
         android:id="@+id/shade_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ob_label" />   
+        
+    <EditText
+        android:id="@+id/obstacle_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10" 
+        android:inputType="number"/>
+    
+    <Button
+        android:id="@+id/make_roll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Roll!" 
+        android:onClick="makeRoll"/>
 
 </LinearLayout>

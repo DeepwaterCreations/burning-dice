@@ -4,15 +4,25 @@ import android.os.Build;
 import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.support.v4.app.NavUtils;
 
 @SuppressLint("NewApi")
-public class RollBuildActivity extends Activity {
+public class RollBuildActivity extends Activity implements OnItemSelectedListener {
+	
+	public final static String EXTRA_ROLLRESULTS = "com.deepwatercreations.burningdice.ROLLRESULTS";
 
+	Roll roll;
+	int shade;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -26,6 +36,7 @@ public class RollBuildActivity extends Activity {
 		        R.array.dieshades_array, android.R.layout.simple_spinner_item);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		shadespinner.setAdapter(adapter);
+		shadespinner.setOnItemSelectedListener(this);
 	}
 
 	@Override
@@ -50,6 +61,37 @@ public class RollBuildActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	public void makeRoll(View view){
+		EditText expField = (EditText)findViewById(R.id.diceNum);
+		int exponent = Integer.parseInt(expField.getText().toString());
+		roll.setExponent(exponent);
+		
+		EditText obField = (EditText)findViewById(R.id.obstacle_input);
+		int obstacle = Integer.parseInt(obField.getText().toString());
+		roll.setObstacle(obstacle);
+		
+		Intent intent = new Intent(this, RollDisplayActivity.class); 		
+		intent.putExtra(EXTRA_ROLLRESULTS, roll);
+		startActivity(intent);
+	}
+
+
+	public void onItemSelected(AdapterView<?> parent, View view, int pos,
+			long id) {
+				shade = 4 - pos; //Bit of a hack here - we're ignoring the data in the array entirely,
+				//and only reading the position in the array of the item that was selected.
+				//As it happens, shades are encoded in terms of integers. As long as
+				//the spinner goes Black-Gray-White, as it should, we can subtract the position
+				//from 4 to get the correct number for that shade. Kind of wacky, but cleaner
+				//IMO than translating the letters into the proper numbers.
+	}
+
+	@Override
+	public void onNothingSelected(AdapterView<?> arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

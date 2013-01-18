@@ -11,6 +11,7 @@
     <string name="title_activity_roll_build">Build Your Roll</string>
     <string name="dicenum_label">Skill/Stat Exponent:</string>
     <string name="buildroll_button_label">Build Roll</string>
+    <string name="ob_label">Obstacle:</string>
     <string-array name="dieshades_array">
     	<item>B</item>
     	<item>G</item>

@@ -13,7 +13,7 @@ import android.support.v4.app.NavUtils;
 @SuppressLint("NewApi")
 public class RollDisplayActivity extends Activity {
 
-	private RollResults results;
+	private Roll results;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class RollDisplayActivity extends Activity {
         
         
         Intent intent = getIntent();
-        results = (RollResults) intent.getSerializableExtra(MainActivity.EXTRA_ROLLRESULTS);
+        results = (Roll) intent.getSerializableExtra(MainActivity.EXTRA_ROLLRESULTS);
         
         TextView textview = new TextView(this);
         textview.setTextSize(30);
