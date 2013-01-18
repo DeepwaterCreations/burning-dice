@@ -128,6 +128,10 @@ public class MainActivity extends Activity {
 		startActivity(intent);
     }
      
+    public void gotoBuildRoll(View view){
+    	Intent intent = new Intent(this, RollBuildActivity.class);
+    	startActivity(intent);
+    }
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

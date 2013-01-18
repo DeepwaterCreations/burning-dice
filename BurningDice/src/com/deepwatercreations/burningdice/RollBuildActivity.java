@@ -1,11 +1,16 @@
 package com.deepwatercreations.burningdice;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.support.v4.app.NavUtils;
 
+@SuppressLint("NewApi")
 public class RollBuildActivity extends Activity {
 
 	@Override
@@ -13,7 +18,14 @@ public class RollBuildActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_roll_build);
 		// Show the Up button in the action bar.
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) 
+        	getActionBar().setDisplayHomeAsUpEnabled(true);
+		
+		Spinner shadespinner = (Spinner) findViewById(R.id.shade_spinner);
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+		        R.array.dieshades_array, android.R.layout.simple_spinner_item);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		shadespinner.setAdapter(adapter);
 	}
 
 	@Override

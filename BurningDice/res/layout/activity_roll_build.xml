@@ -1,5 +1,6 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RollBuildActivity" >
@@ -7,8 +8,25 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/hello_world" />
+        android:layout_gravity="center"
+        android:text="@string/title_activity_roll_build"
+        android:textSize="@dimen/padding_large" />
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dicenum_label" />   
+         
+    <EditText
+        android:id="@+id/diceNum"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" 
+        android:inputType="number"/>
 
-</RelativeLayout>
+    <Spinner
+        android:id="@+id/shade_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

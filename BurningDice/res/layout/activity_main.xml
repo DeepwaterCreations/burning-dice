@@ -98,13 +98,20 @@
         android:id="@+id/diceNum"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:ems="10" />
+        android:ems="10" 
+        android:inputType="number"/>
 
     <Button 
         android:id="@+id/roll"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/button_label"
-        android:onClick="makeRoll" />
+        android:text="@string/button_label"/>
+    
+    <Button 
+        android:id="@+id/buildrollbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/buildroll_button_label"
+        android:onClick="gotoBuildRoll" />
 
 </LinearLayout>

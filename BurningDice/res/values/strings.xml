@@ -8,6 +8,14 @@
     <string name="title_activity_main">Burning Dice</string>
     <string name="title_activity_rolldisplay">Burning Dice: Roll Results</string>
     <string name="title_activity_roll_display">RollDisplayActivity</string>
-    <string name="title_activity_roll_build">RollBuildActivity</string>
-
+    <string name="title_activity_roll_build">Build Your Roll</string>
+    <string name="dicenum_label">Skill/Stat Exponent:</string>
+    <string name="buildroll_button_label">Build Roll</string>
+    <string-array name="dieshades_array">
+    	<item>B</item>
+    	<item>G</item>
+    	<item>W</item>    
+    </string-array>
+    
+    
 </resources>
