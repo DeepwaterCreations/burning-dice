@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.support.v4.app.NavUtils;
 
@@ -27,12 +28,27 @@ public class RollDisplayActivity extends Activity {
         Intent intent = getIntent();
         results = (Roll) intent.getSerializableExtra(MainActivity.EXTRA_ROLLRESULTS);
         
-        TextView successesview = new TextView(this);
-        successesview.setTextSize(30);
-        CharSequence successestext = "You got " + results.getNumSuccesses() + " successes on " + results.getTotalDice() + " dice!";
-        successesview.setText(successestext);
-        
-        setContentView(successesview);        
+//        LinearLayout llayout = new LinearLayout(this);
+//        
+//        TextView successesview = new TextView(this);
+//        successesview.setTextSize(30);
+//        CharSequence successestext = "You got " + results.getNumSuccesses() + " successes on " + results.getTotalDice() + " dice!";
+//        successesview.setText(successestext);
+//        
+//        TextView resultsview = new TextView(this);
+//        successesview.setTextSize(30);
+//        String resultstextS = "Results: ";
+//        for(int num : results.getResults()){
+//        	resultstextS += num;
+//        	resultstextS += " ";
+//        }
+//        CharSequence resultstext = resultstextS;
+//        resultsview.setText(resultstext);
+//        
+//        llayout.addView(successesview);
+//        llayout.addView(resultsview);
+//                
+//        setContentView(llayout);        
         
     }
 

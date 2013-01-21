@@ -12,6 +12,8 @@
     <string name="dicenum_label">Skill/Stat Exponent:</string>
     <string name="buildroll_button_label">Build Roll</string>
     <string name="ob_label">Obstacle:</string>
+    <string name="fatebutton">Spend Fate</string>
+    <string name="deedsbutton">Spend Deeds</string>
     <string-array name="dieshades_array">
     	<item>B</item>
     	<item>G</item>

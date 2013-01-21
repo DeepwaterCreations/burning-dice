@@ -81,7 +81,8 @@ public class Roll implements Serializable{
 	}
 			
 	public void doRoll(){
-		if(!rollMade){
+		if(!rollMade){ //TODO: Consider changing this. Might be nicer to reroll and make sure that
+			//old results are removed.
 			for(int i = 0; i < getTotalDice(); i++){
 				int rollnum = dicebag.nextInt(6) + 1;
 				results.add(rollnum);
