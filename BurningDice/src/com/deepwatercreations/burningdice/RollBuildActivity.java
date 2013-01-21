@@ -16,6 +16,11 @@ import android.widget.Spinner;
 import android.support.v4.app.NavUtils;
 
 @SuppressLint("NewApi")
+/**
+ * This activity allows the user to specify the details of a roll.
+ * @author Dylan Craine
+ *
+ */
 public class RollBuildActivity extends Activity implements OnItemSelectedListener {
 	
 	public final static String EXTRA_ROLLRESULTS = "com.deepwatercreations.burningdice.ROLLRESULTS";
@@ -30,6 +35,8 @@ public class RollBuildActivity extends Activity implements OnItemSelectedListene
 		// Show the Up button in the action bar.
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) 
         	getActionBar().setDisplayHomeAsUpEnabled(true);
+		
+		roll = new Roll();
 		
 		Spinner shadespinner = (Spinner) findViewById(R.id.shade_spinner);
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -64,6 +71,7 @@ public class RollBuildActivity extends Activity implements OnItemSelectedListene
 	}
 	
 	public void makeRoll(View view){
+		try{
 		EditText expField = (EditText)findViewById(R.id.diceNum);
 		int exponent = Integer.parseInt(expField.getText().toString());
 		roll.setExponent(exponent);
@@ -71,9 +79,12 @@ public class RollBuildActivity extends Activity implements OnItemSelectedListene
 		EditText obField = (EditText)findViewById(R.id.obstacle_input);
 		int obstacle = Integer.parseInt(obField.getText().toString());
 		roll.setObstacle(obstacle);
+		}
+		catch(NumberFormatException integertantrum){}
 		
 		Intent intent = new Intent(this, RollDisplayActivity.class); 		
 		intent.putExtra(EXTRA_ROLLRESULTS, roll);
+		roll.doRoll();
 		startActivity(intent);
 	}
 

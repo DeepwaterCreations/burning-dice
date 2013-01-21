@@ -27,12 +27,12 @@ public class RollDisplayActivity extends Activity {
         Intent intent = getIntent();
         results = (Roll) intent.getSerializableExtra(MainActivity.EXTRA_ROLLRESULTS);
         
-        TextView textview = new TextView(this);
-        textview.setTextSize(30);
-        CharSequence text = "You got " + results.getNumSuccesses() + " successes on " + results.getTotalDice() + " dice!";
-        textview.setText(text);
+        TextView successesview = new TextView(this);
+        successesview.setTextSize(30);
+        CharSequence successestext = "You got " + results.getNumSuccesses() + " successes on " + results.getTotalDice() + " dice!";
+        successesview.setText(successestext);
         
-        setContentView(textview);
+        setContentView(successesview);        
         
     }
 
