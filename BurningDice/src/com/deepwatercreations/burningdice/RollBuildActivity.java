@@ -70,15 +70,22 @@ public class RollBuildActivity extends Activity implements OnItemSelectedListene
 		return super.onOptionsItemSelected(item);
 	}
 	
+	/**
+	 * 
+	 * Adds the field data to the roll object, then makes the roll happen.
+	 * Should eventually switch to a view where the user can roll the dice with a touch gesture. 
+	 * 
+	 * @param view
+	 */
 	public void makeRoll(View view){
 		try{
-		EditText expField = (EditText)findViewById(R.id.diceNum);
-		int exponent = Integer.parseInt(expField.getText().toString());
-		roll.setExponent(exponent);
-		
-		EditText obField = (EditText)findViewById(R.id.obstacle_input);
-		int obstacle = Integer.parseInt(obField.getText().toString());
-		roll.setObstacle(obstacle);
+			EditText expField = (EditText)findViewById(R.id.diceNum);
+			int exponent = Integer.parseInt(expField.getText().toString());
+			roll.setExponent(exponent);
+			
+			EditText obField = (EditText)findViewById(R.id.obstacle_input);
+			int obstacle = Integer.parseInt(obField.getText().toString());
+			roll.setObstacle(obstacle);
 		}
 		catch(NumberFormatException integertantrum){}
 		

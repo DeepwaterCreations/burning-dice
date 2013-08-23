@@ -61,6 +61,7 @@ public class MainActivity extends Activity {
     		switch(v.getId()){
     		
     		//Dang, there has got to be a better way to do this!
+    		//These are the quick roll buttons, for if the user just wants to roll n dice without typing in a bunch of bleedin' numbers.
     		case R.id.qroll1:
     			roll = new Roll(1);
     			makeRoll(roll);
@@ -115,6 +116,9 @@ public class MainActivity extends Activity {
     				//Um... I have no idea what to put here!
     				//Ideally, I should alert the user that they've done it wrong,
     				//but I need another try/catch to throw up a toast. Right?
+    				
+    				//No, this isn't hard. Set an error string variable or something and show it in a toast AFTER the exception.
+    				
     			}
         		break;
     		}

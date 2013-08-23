@@ -28,6 +28,24 @@ public class RollDisplayActivity extends Activity {
         Intent intent = getIntent();
         results = (Roll) intent.getSerializableExtra(MainActivity.EXTRA_ROLLRESULTS);
         
+        TextView isSuccessText = (TextView)findViewById(R.id.is_success_field);
+        String successorfail = results.getMargin() >= 0 ? "Success!" : "Failure!"; 
+        isSuccessText.setText(successorfail);
+        
+        TextView numDiceText = (TextView)findViewById(R.id.num_dice_field);
+        String numdice = String.valueOf(results.getTotalDice()); 
+        numDiceText.setText(numdice);
+        
+        TextView dieResultsText = (TextView)findViewById(R.id.die_results_field);
+        String dieresults = String.valueOf(results.getMargin()); 
+        dieResultsText.setText(dieresults);
+        
+        TextView difficultyText = (TextView)findViewById(R.id.difficulty_field);
+        String difficulty = "TEST"; 
+        difficultyText.setText(difficulty);
+    
+        
+        
 //        LinearLayout llayout = new LinearLayout(this);
 //        
 //        TextView successesview = new TextView(this);

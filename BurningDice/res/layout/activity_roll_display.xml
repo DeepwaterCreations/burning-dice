@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:text="TESTissuccess"
+        android:textIsSelectable = "true"
         />
         
     <TextView
@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/is_success_field"
-        android:text="TESTnumdice"
+        android:textIsSelectable = "true"
         />
     
     <TextView
@@ -24,16 +24,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/num_dice_field"
-        android:text="TESTdieresults"
+        android:textIsSelectable = "true"  
         />
     
     <TextView
         android:id="@+id/difficulty_field"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+	    android:textIsSelectable = "true"
         android:layout_below="@id/die_results_field"
-        android:text="TESTdifficulty"
-        />
+	    />        
     
     <Button
         android:id="@+id/fate_button"

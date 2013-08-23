@@ -80,6 +80,9 @@ public class Roll implements Serializable{
 			extraDice -= superfluousExtras;
 	}
 			
+	/**
+	 * 
+	 */
 	public void doRoll(){
 		if(!rollMade){ //TODO: Consider changing this. Might be nicer to reroll and make sure that
 			//old results are removed.
@@ -99,8 +102,20 @@ public class Roll implements Serializable{
 		return results;		
 	}
 	
-	public boolean getSuccess(){
-		return successes >= obstacle; 
+	/**
+	 * 
+	 * @return true if the roll got successes equal to or greater than the obstacle. 
+	 */
+//	public boolean getSuccess(){
+//		return successes >= obstacle; 
+//	}
+	
+	/**
+	 * 
+	 * @return The margin of success or failure. If the number is 0 or positive, the roll beat the obstacle. 
+	 */
+	public int getMargin(){
+		return successes - obstacle;		
 	}
 	
 	public int getNumSuccesses(){
@@ -134,7 +149,7 @@ public class Roll implements Serializable{
 						break;
 					}
 				}
-			fateSpent ++;
+			fateSpent++;
 		} 
 	}
 	
