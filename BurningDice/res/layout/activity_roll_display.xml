@@ -8,38 +8,97 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:textIsSelectable = "true"
+        android:gravity="center_horizontal"
+        android:textIsSelectable="true"
+        android:textSize="60.0sp"
         />
-        
+
     <TextView
-        android:id="@+id/num_dice_field"
+        android:id="@+id/num_dice_label_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/is_success_field"
         android:textIsSelectable = "true"
+        android:text="Total Dice Rolled:"
+        />
+    
+    <TextView
+        android:id="@+id/num_dice_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/num_dice_label_field"
+        android:textIsSelectable = "true"
+        />
+    
+    <TextView
+        android:id="@+id/die_results_label_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/num_dice_field"
+        android:textIsSelectable = "true"
+        android:text="Die Results:"  
         />
     
     <TextView
         android:id="@+id/die_results_field"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/num_dice_field"
+        android:layout_below="@id/die_results_label_field"
         android:textIsSelectable = "true"  
         />
+    
+    <TextView
+        android:id="@+id/difficulty_label_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+	    android:textIsSelectable = "true"
+        android:layout_below="@id/die_results_field"
+        android:text="Difficulty:"  
+	    />    
     
     <TextView
         android:id="@+id/difficulty_field"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 	    android:textIsSelectable = "true"
-        android:layout_below="@id/die_results_field"
+        android:layout_below="@id/difficulty_label_field"
 	    />        
+    
+    <TextView
+        android:id="@+id/num_success_label_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/difficulty_field"
+        android:text="Margin:"  
+        />
+    
+    <TextView
+        android:id="@+id/num_success_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/num_success_label_field"
+        />
+
+    <TextView
+        android:id="@+id/ob_label_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/num_success_field"
+        android:text="Obstacle:"
+        />
+    
+    <TextView
+        android:id="@+id/ob_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ob_label_field"
+        />
     
     <Button
         android:id="@+id/fate_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/difficulty_field"
+        android:layout_below="@id/ob_field"
         android:text="@string/fatebutton"/>
 
     <Button
@@ -51,20 +110,6 @@
         android:layout_toRightOf="@+id/fate_button"
         android:text="@string/deedsbutton" />
 
-    <TextView
-        android:id="@+id/num_success_field"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/die_results_field"
-        android:layout_toRightOf="@+id/num_dice_field"
-        android:text="TESTnumsuccess" />
 
-    <TextView
-        android:id="@+id/ob_field"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/die_results_field"
-        android:layout_toRightOf="@+id/num_success_field"
-        android:text="TESTob" />
 
 </RelativeLayout>

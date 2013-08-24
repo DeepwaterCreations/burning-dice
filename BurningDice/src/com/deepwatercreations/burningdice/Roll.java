@@ -14,6 +14,8 @@ import java.util.Random;
  */
 public class Roll implements Serializable{
 	
+	public enum Difficulty{PLAYER_CHOICE, ROUTINE, DIFFICULT, CHALLENGING}
+	
 	private static final long serialVersionUID = 1L;
 
 	private Random dicebag;
@@ -26,6 +28,7 @@ public class Roll implements Serializable{
 	private int diceShade = 4; //Gray is 3, White is 2.
 	private ArrayList<Integer> results;
 	private int successes = 0;
+	private Difficulty difficulty;
 	
 	private boolean openEnded = false;
 	private boolean rollMade = false; 
@@ -52,15 +55,31 @@ public class Roll implements Serializable{
 		if(exp > 0)
 			exponent = exp;
 	}	
+
+	public int getExponent(){
+		return exponent;
+	}
 	
 	public void setObstacle(int ob){
 		if(ob > 0)
 			obstacle = ob;
 	}
 	
+	public int getObstacle(){
+		return obstacle;
+	}
+	
 	public void setShade(int shade){
-		if(shade >= 2 && shade <= 4)
-			diceShade = shade;
+		assert(shade >= 2 && shade <= 4);
+		diceShade = shade;
+	}
+	
+	public int getShade(){
+		return diceShade;
+	}
+	
+	public Difficulty getDifficulty(){
+		return difficulty;
 	}
 	
 	public void makeOpenEnded(){
@@ -81,7 +100,7 @@ public class Roll implements Serializable{
 	}
 			
 	/**
-	 * 
+	 * Performs the rolling of the dice.
 	 */
 	public void doRoll(){
 		if(!rollMade){ //TODO: Consider changing this. Might be nicer to reroll and make sure that
@@ -94,6 +113,7 @@ public class Roll implements Serializable{
 				if(openEnded && rollnum == 6)
 					extraDice++; //Fate hasn't been spent yet, so this is Steel or something.
 			}
+			difficulty = DifficultyLookup.getDifficulty(exponent + extraDice, obstacle);
 			rollMade = true;
 		}
 	}
@@ -219,5 +239,42 @@ public class Roll implements Serializable{
 		if(rollnum >= diceShade)
 			successes++; //WARNING: Assumes we aren't re-rolling successes! Which we shouldn't be doing anyway.
 	}
+
+	
+	//All this stuff is for calculating Difficulty: 
+	public static class DifficultyLookup{
+			
+		//difficultyTable[x] is the highest obstacle that counts as Routine for x+1 dice.
+		//If numDice > difficultyTable[x] and <= ob, it's Difficult. numDice > ob is Challenging. 
+		static private int[] difficultyTable = new int[]{
+			//Remember - it's off by one! [0] is 1 die. [17] is 18 dice.
+			1, //1 die - Special case - counts as either, player's choice.  
+			1, //2 dice
+			2, //3 
+			2, //4 
+			3, //5 
+			4, //6 - Beyond this point, the value is always numDice - 3.
+		};
+
+		
+		/**
+		 * 
+		 * Returns the difficulty level for the given number of dice versus the given obstacle.
+		 * 
+		 * @param numDice Number of non-Artha dice being rolled
+		 * @param ob Obstacle
+		 * @return ROUTINE, DIFFICULT or CHALLENGING, or PLAYER_CHOICE for 1 vs 1 since that counts as either ROUTINE or DIFFICULT. 
+		 */
+		public static Difficulty getDifficulty(int numDice, int ob){
+			assert(ob > 0);//No such thing as obstacle 0.
+			if(numDice == 1 && ob == 1) return Difficulty.PLAYER_CHOICE;  
+			int maxRoutineOb = numDice < 7 ? difficultyTable[numDice - 1] : numDice - 3; //numDice-1 because the table starts at 0, of course.
+			if(ob <= maxRoutineOb) return Difficulty.ROUTINE; 
+			if(ob <= numDice) return Difficulty.DIFFICULT;
+			return Difficulty.CHALLENGING; 
+		}
+		
+	}
+	
 
 }
