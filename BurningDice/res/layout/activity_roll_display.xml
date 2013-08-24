@@ -99,7 +99,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/ob_field"
-        android:text="@string/fatebutton"/>
+        android:text="@string/fatebutton"
+        android:onClick="spendFate"/>
 
     <Button
         android:id="@+id/deeds_button"
@@ -108,7 +109,8 @@
         android:layout_alignBaseline="@+id/fate_button"
         android:layout_alignBottom="@+id/fate_button"
         android:layout_toRightOf="@+id/fate_button"
-        android:text="@string/deedsbutton" />
+        android:text="@string/deedsbutton" 
+        android:onClick="spendDeeds"/>
 
 
 
