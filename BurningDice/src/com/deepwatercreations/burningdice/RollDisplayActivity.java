@@ -9,6 +9,7 @@ import android.content.res.Resources;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.support.v4.app.NavUtils;
@@ -104,7 +105,14 @@ public class RollDisplayActivity extends Activity {
         TextView obText = (TextView)findViewById(R.id.ob_field);
         String ob = String.valueOf(results.getObstacle());
         obText.setText(ob);
-    }
+        
+        //Disable Artha buttons if Artha has been spent.
+        Button deedsButton = (Button)findViewById(R.id.deeds_button);
+        deedsButton.setEnabled(results.isDeedsAvailable());
+        Button fateButton = (Button)findViewById(R.id.fate_button);
+        fateButton.setEnabled(results.isFateAvailable());
+        
+	}
     
     
     @Override

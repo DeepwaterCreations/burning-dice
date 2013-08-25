@@ -33,9 +33,9 @@ public class Roll implements Serializable{
 	private boolean openEnded = false;
 	private boolean rollMade = false; 
 	
-	private int fateSpent = 0;
+	private boolean fateSpent = false;
 	private int personaSpent = 0;
-	private int deedsSpent = 0;
+	private boolean deedsSpent = false;
 	
 	public Roll(int exp){
 		dicebag = new Random();	
@@ -82,6 +82,14 @@ public class Roll implements Serializable{
 		return difficulty;
 	}
 	
+	public boolean isDeedsAvailable(){
+		return !deedsSpent;
+	}
+	
+	public boolean isFateAvailable(){
+		return !fateSpent;
+	}
+	
 	public void makeOpenEnded(){
 		openEnded = true;
 	}
@@ -103,6 +111,7 @@ public class Roll implements Serializable{
 	 * Performs the rolling of the dice.
 	 */
 	public void doRoll(){
+		//TODO: When I go to nicer graphics, I think they should eventually go here.
 		if(!rollMade){ //TODO: Consider changing this. Might be nicer to reroll and make sure that
 			//old results are removed.
 			for(int i = 0; i < getTotalDice(); i++){
@@ -115,6 +124,7 @@ public class Roll implements Serializable{
 			}
 			difficulty = DifficultyLookup.getDifficulty(exponent + extraDice, obstacle);
 			rollMade = true;
+			deedsSpent = false; //Deeds can be spent again after the roll.  
 		}
 	}
 	
@@ -152,7 +162,7 @@ public class Roll implements Serializable{
 	 * not open-ended). Luck is purchased after the dice have been rolled." p. 66 BWG   
 	 */
 	public void spendFate(){
-		if(fateSpent > 0)
+		if(fateSpent)
 			System.out.println("ERROR: Can't spend more than one fate on a roll!");
 		else if(!rollMade)
 			System.out.println("ERROR: Can't activate Luck until roll has been made!");
@@ -161,16 +171,17 @@ public class Roll implements Serializable{
 				openEnded = true;
 				rollFateOpenEnded();
 			}
-			else
+			else{
 				//Reroll a traitor - TODO: Make this not open ended!
 				for(int i = 0; i < results.size(); i++){
 					if(results.get(i) < diceShade){
 						reroll(i);
 						break;
 					}
-				}
-			fateSpent++;
-		} 
+				}				
+			}
+			fateSpent = true;
+		}
 	}
 	
 	/**
@@ -202,20 +213,44 @@ public class Roll implements Serializable{
 	 * announced after the dice have been rolled." p. 67 BWG 
 	 */
 	public void spendDeeds(){
-		if(!rollMade){
-			//Divine Inspiration
-			arthaDice += exponent;	
-		}
-		else{
-			//Saving Grace
-			for(int i = 0; i < results.size(); i++){
-				if(results.get(i) < diceShade)
-					reroll(i);
+		if(deedsSpent == false){
+			if(!rollMade){
+				//Divine Inspiration
+				arthaDice += exponent;	
 			}
+			else{
+				//Saving Grace
+				//FIXME: When open ended, it doesn't seem to be adding new dice properly for rerolled dice that come up 6.
+				ArrayList<Integer> rerollDiceIndices = new ArrayList<Integer>();
+				for(int i = 0; i < results.size(); i++){
+					if(results.get(i) < diceShade)
+						rerollDiceIndices.add(i);						
+				}
+				
+				for(int i = 0; i < rerollDiceIndices.size(); i++){
+					int rollnum = dicebag.nextInt(6) + 1;
+					if(rerollDiceIndices.get(i) < results.size())
+						results.set(rerollDiceIndices.get(i), rollnum);
+					else{
+						results.add(rollnum);
+					}
+					if(rollnum >= diceShade)
+						successes++;
+					if(openEnded && rollnum == 6){
+						arthaDice++;
+						rerollDiceIndices.add(results.size()); //Effectively adds a new die to Results on the next pass. 
+					}
+				}
+				
+			}
+			deedsSpent = true; 
 		}
-		deedsSpent++; 
+		else System.out.println("ERROR: Deeds already spent!");
 	}
 	
+	/**
+	 * Calls rollArthaDie() for every die that came up 6. 
+	 */
 	private void rollFateOpenEnded(){
 		for(int i = 0; i < results.size(); i++){
 			if(results.get(i) == 6){
@@ -224,6 +259,13 @@ public class Roll implements Serializable{
 		}
 	}
 	
+	/**
+	 * Rolls a non-open ended die, increments success if relevant, and
+	 * increments the number of Artha dice. 
+	 * Non-open ended because it's called from rollFateOpenEnded(), which will reroll any 6s appended to the list
+	 * by this method.   
+	 * @return the die result number.
+	 */
 	private int rollArthaDie(){
 		int rollnum = dicebag.nextInt(6) + 1;
 		results.add(rollnum);
@@ -233,6 +275,10 @@ public class Roll implements Serializable{
 		return rollnum; 
 	}
 	
+	/**
+	 * Rerolls a single die and increments successes if it comes up a success.
+	 * @param index The index of the die in the die array to be rerolled.
+	 */
 	private void reroll(int index){
 		int rollnum = dicebag.nextInt(6) + 1;
 		results.set(index, rollnum);
