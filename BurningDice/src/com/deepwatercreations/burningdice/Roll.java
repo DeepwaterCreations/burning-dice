@@ -220,13 +220,13 @@ public class Roll implements Serializable{
 			}
 			else{
 				//Saving Grace
-				//FIXME: When open ended, it doesn't seem to be adding new dice properly for rerolled dice that come up 6.
 				ArrayList<Integer> rerollDiceIndices = new ArrayList<Integer>();
 				for(int i = 0; i < results.size(); i++){
 					if(results.get(i) < diceShade)
 						rerollDiceIndices.add(i);						
 				}
 				
+				int newresultindex = results.size();
 				for(int i = 0; i < rerollDiceIndices.size(); i++){
 					int rollnum = dicebag.nextInt(6) + 1;
 					if(rerollDiceIndices.get(i) < results.size())
@@ -238,7 +238,8 @@ public class Roll implements Serializable{
 						successes++;
 					if(openEnded && rollnum == 6){
 						arthaDice++;
-						rerollDiceIndices.add(results.size()); //Effectively adds a new die to Results on the next pass. 
+						rerollDiceIndices.add(newresultindex);
+						newresultindex++; 
 					}
 				}
 				
