@@ -79,11 +79,11 @@ public class RollBuildActivity extends Activity implements OnItemSelectedListene
 	 */
 	public void makeRoll(View view){
 		try{
-			EditText expField = (EditText)findViewById(R.id.diceNum);
+			EditText expField = (EditText)findViewById(R.id.build_dicenum);
 			int exponent = Integer.parseInt(expField.getText().toString());
 			roll.setExponent(exponent);
 			
-			EditText obField = (EditText)findViewById(R.id.obstacle_input);
+			EditText obField = (EditText)findViewById(R.id.build_obstacle_input);
 			int obstacle = Integer.parseInt(obField.getText().toString());
 			roll.setObstacle(obstacle);
 		}

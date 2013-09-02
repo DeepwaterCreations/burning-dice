@@ -27,24 +27,29 @@ public final class R {
         public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
+        public static final int build_dicenum=0x7f0a0011;
+        public static final int build_dicenum_label=0x7f0a0010;
+        public static final int build_ob_label=0x7f0a0012;
+        public static final int build_obstacle_input=0x7f0a0013;
+        public static final int build_shade_label=0x7f0a000e;
+        public static final int buildroll_title=0x7f0a000d;
         public static final int buildrollbutton=0x7f0a000c;
-        public static final int deeds_button=0x7f0a001c;
+        public static final int deeds_button=0x7f0a0021;
         public static final int diceNum=0x7f0a000a;
-        public static final int die_results_field=0x7f0a0014;
-        public static final int die_results_label_field=0x7f0a0013;
-        public static final int difficulty_field=0x7f0a0016;
-        public static final int difficulty_label_field=0x7f0a0015;
-        public static final int fate_button=0x7f0a001b;
-        public static final int is_success_field=0x7f0a0010;
-        public static final int make_roll=0x7f0a000f;
-        public static final int menu_settings=0x7f0a001d;
-        public static final int num_dice_field=0x7f0a0012;
-        public static final int num_dice_label_field=0x7f0a0011;
-        public static final int num_success_field=0x7f0a0018;
-        public static final int num_success_label_field=0x7f0a0017;
-        public static final int ob_field=0x7f0a001a;
-        public static final int ob_label_field=0x7f0a0019;
-        public static final int obstacle_input=0x7f0a000e;
+        public static final int die_results_field=0x7f0a0019;
+        public static final int die_results_label_field=0x7f0a0018;
+        public static final int difficulty_field=0x7f0a001b;
+        public static final int difficulty_label_field=0x7f0a001a;
+        public static final int fate_button=0x7f0a0020;
+        public static final int is_success_field=0x7f0a0015;
+        public static final int make_roll=0x7f0a0014;
+        public static final int menu_settings=0x7f0a0022;
+        public static final int num_dice_field=0x7f0a0017;
+        public static final int num_dice_label_field=0x7f0a0016;
+        public static final int num_success_field=0x7f0a001d;
+        public static final int num_success_label_field=0x7f0a001c;
+        public static final int ob_field=0x7f0a001f;
+        public static final int ob_label_field=0x7f0a001e;
         public static final int qroll1=0x7f0a0000;
         public static final int qroll10=0x7f0a0009;
         public static final int qroll2=0x7f0a0001;
@@ -56,7 +61,7 @@ public final class R {
         public static final int qroll8=0x7f0a0007;
         public static final int qroll9=0x7f0a0008;
         public static final int roll=0x7f0a000b;
-        public static final int shade_spinner=0x7f0a000d;
+        public static final int shade_spinner=0x7f0a000f;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -74,6 +79,7 @@ public final class R {
         public static final int button_label=0x7f060002;
         public static final int deedsbutton=0x7f06000c;
         public static final int dicenum_label=0x7f060008;
+        public static final int diceshade_label=0x7f06000d;
         public static final int fatebutton=0x7f06000b;
         public static final int hello_world=0x7f060001;
         public static final int menu_settings=0x7f060003;

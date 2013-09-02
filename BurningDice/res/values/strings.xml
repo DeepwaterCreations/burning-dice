@@ -14,6 +14,7 @@
     <string name="ob_label">Obstacle:</string>
     <string name="fatebutton">Spend Fate</string>
     <string name="deedsbutton">Spend Deeds</string>
+    <string name="diceshade_label">Die Shade:</string>
     <string-array name="dieshades_array">
     	<item>B</item>
     	<item>G</item>

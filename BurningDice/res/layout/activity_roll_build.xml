@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -6,38 +6,53 @@
     tools:context=".RollBuildActivity" >
 
     <TextView
+        android:id="@+id/buildroll_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/title_activity_roll_build"
         android:textSize="@dimen/padding_large" />
     
+   	<TextView
+	    android:id="@+id/build_shade_label"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/buildroll_title"
+	    android:text="@string/diceshade_label" />
     <Spinner
         android:id="@+id/shade_spinner"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content" 
+        android:layout_toRightOf="@+id/build_shade_label"
+        android:layout_alignBaseline="@+id/build_shade_label" />
     
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/dicenum_label" />   
-         
-    <EditText
-        android:id="@+id/diceNum"
+        android:id="@+id/build_dicenum_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/build_shade_label"
+        android:text="@string/dicenum_label" />
+    <EditText
+        android:id="@+id/build_dicenum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/build_dicenum_label"
+        android:layout_alignBaseline="@+id/build_dicenum_label"
         android:ems="3" 
-        android:inputType="number"/>
+        android:inputType="number"/>    
     
     <TextView
+        android:id="@+id/build_ob_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/build_dicenum_label"
         android:text="@string/ob_label" />   
-        
     <EditText
-        android:id="@+id/obstacle_input"
+        android:id="@+id/build_obstacle_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/build_ob_label"
+        android:layout_alignBaseline="@+id/build_ob_label"
         android:ems="3" 
         android:inputType="number"/>
     
@@ -45,7 +60,8 @@
         android:id="@+id/make_roll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/build_ob_label"
         android:text="Roll!" 
         android:onClick="makeRoll"/>
 
-</LinearLayout>
+</RelativeLayout>
