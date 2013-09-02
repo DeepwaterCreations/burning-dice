@@ -24,6 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" 
         android:layout_toRightOf="@+id/build_shade_label"
+        android:layout_below="@+id/buildroll_title"
         android:layout_alignBaseline="@+id/build_shade_label" />
     
     <TextView
@@ -37,6 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/build_dicenum_label"
+        android:layout_below="@+id/shade_spinner"
         android:layout_alignBaseline="@+id/build_dicenum_label"
         android:ems="3" 
         android:inputType="number"/>    
@@ -52,15 +54,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/build_ob_label"
+        android:layout_below="@+id/build_dicenum_label"
         android:layout_alignBaseline="@+id/build_ob_label"
         android:ems="3" 
         android:inputType="number"/>
+    
+    <CheckBox 
+        android:id="@+id/build_openended_checkbox"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/build_ob_label"
+        android:text="@string/openended_select"
+        android:onClick="selectOpenEnded" />
     
     <Button
         android:id="@+id/make_roll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/build_ob_label"
+        android:layout_below="@+id/build_openended_checkbox"
         android:text="Roll!" 
         android:onClick="makeRoll"/>
 

@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.support.v4.app.NavUtils;
@@ -104,6 +105,11 @@ public class RollBuildActivity extends Activity implements OnItemSelectedListene
 				//the spinner goes Black-Gray-White, as it should, we can subtract the position
 				//from 4 to get the correct number for that shade. Kind of wacky, but cleaner
 				//IMO than translating the letters into the proper numbers.
+	}
+	
+	public void selectOpenEnded(View view){
+		boolean openEnded = ((CheckBox)view).isChecked();
+		roll.setOpenEnded(openEnded);
 	}
 
 	@Override

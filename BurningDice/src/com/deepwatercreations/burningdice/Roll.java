@@ -90,12 +90,8 @@ public class Roll implements Serializable{
 		return !fateSpent;
 	}
 	
-	public void makeOpenEnded(){
-		openEnded = true;
-	}
-	
-	public void makeNotOpenEnded(){
-		openEnded = false;
+	public void setOpenEnded(boolean isOpenEnded){
+		openEnded = isOpenEnded;
 	}
 	
 	public void addDice(int extras){

@@ -20,6 +20,7 @@
     	<item>G</item>
     	<item>W</item>    
     </string-array>
+    <string name="openended_select">Roll is Open-Ended</string>
     
     
 </resources>
