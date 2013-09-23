@@ -13,6 +13,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.support.v4.app.NavUtils;
 
@@ -28,6 +29,8 @@ public class RollBuildActivity extends Activity implements OnItemSelectedListene
 
 	Roll roll;
 	int shade;
+	int boonDice = 0;
+	boolean spentDeeds;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +42,20 @@ public class RollBuildActivity extends Activity implements OnItemSelectedListene
 		
 		roll = new Roll();
 		
-		Spinner shadespinner = (Spinner) findViewById(R.id.shade_spinner);
-		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+		Spinner shadespinner = (Spinner) findViewById(R.id.build_shade_spinner);
+		ArrayAdapter<CharSequence> shadeadapter = ArrayAdapter.createFromResource(this,
 		        R.array.dieshades_array, android.R.layout.simple_spinner_item);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		shadespinner.setAdapter(adapter);
+		shadeadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		shadespinner.setAdapter(shadeadapter);
 		shadespinner.setOnItemSelectedListener(this);
+		
+		Spinner boonspinner = (Spinner) findViewById(R.id.build_boon_spinner);
+		ArrayAdapter<CharSequence> boonadapter = ArrayAdapter.createFromResource(this,
+		        R.array.boon_array, android.R.layout.simple_spinner_item);
+		boonadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		boonspinner.setAdapter(boonadapter);
+		boonspinner.setOnItemSelectedListener(this);
+				
 	}
 
 	@Override
@@ -80,15 +91,24 @@ public class RollBuildActivity extends Activity implements OnItemSelectedListene
 	 */
 	public void makeRoll(View view){
 		try{
-			EditText expField = (EditText)findViewById(R.id.build_dicenum);
+			EditText expField = (EditText)findViewById(R.id.build_exponent_input);
 			int exponent = Integer.parseInt(expField.getText().toString());
 			roll.setExponent(exponent);
 			
 			EditText obField = (EditText)findViewById(R.id.build_obstacle_input);
 			int obstacle = Integer.parseInt(obField.getText().toString());
 			roll.setObstacle(obstacle);
+			
+			EditText addlField = (EditText)findViewById(R.id.build_addldice_input);
+			int addl = Integer.parseInt(addlField.getText().toString());
+			roll.addDice(addl);
 		}
 		catch(NumberFormatException integertantrum){}
+		
+		if(spentDeeds)
+			roll.spendDeeds();
+		
+		roll.spendPersona(boonDice);
 		
 		Intent intent = new Intent(this, RollDisplayActivity.class); 		
 		intent.putExtra(EXTRA_ROLLRESULTS, roll);
@@ -99,17 +119,26 @@ public class RollBuildActivity extends Activity implements OnItemSelectedListene
 
 	public void onItemSelected(AdapterView<?> parent, View view, int pos,
 			long id) {
+			if(parent == findViewById(R.id.build_shade_spinner)){
 				shade = 4 - pos; //Bit of a hack here - we're ignoring the data in the array entirely,
 				//and only reading the position in the array of the item that was selected.
 				//As it happens, shades are encoded in terms of integers. As long as
 				//the spinner goes Black-Gray-White, as it should, we can subtract the position
 				//from 4 to get the correct number for that shade. Kind of wacky, but cleaner
 				//IMO than translating the letters into the proper numbers.
+			}
+			else if(parent == findViewById(R.id.build_boon_spinner)){
+				boonDice = pos;				
+			}
 	}
 	
 	public void selectOpenEnded(View view){
 		boolean openEnded = ((CheckBox)view).isChecked();
 		roll.setOpenEnded(openEnded);
+	}
+	
+	public void selectDeedsSpent(View view){
+		spentDeeds = ((CheckBox)view).isChecked();		
 	}
 
 	@Override

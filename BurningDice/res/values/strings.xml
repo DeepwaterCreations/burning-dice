@@ -15,12 +15,20 @@
     <string name="fatebutton">Spend Fate</string>
     <string name="deedsbutton">Spend Deeds</string>
     <string name="diceshade_label">Die Shade:</string>
+    <string name="openended_select">Roll is Open-Ended</string>
+    <string name="deeds_select">Spend Deeds to Double Exponent</string>
+    <string name="boonpick_label">Persona Spent:</string>
     <string-array name="dieshades_array">
     	<item>B</item>
     	<item>G</item>
     	<item>W</item>    
     </string-array>
-    <string name="openended_select">Roll is Open-Ended</string>
+    <string-array name="boon_array">
+    	<item>0</item>
+    	<item>1</item>
+    	<item>2</item>
+    	<item>3</item>    
+    </string-array>
     
     
 </resources>
