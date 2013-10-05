@@ -6,10 +6,13 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.support.v4.app.NavUtils;
@@ -64,18 +67,24 @@ public class RollDisplayActivity extends Activity {
         }
         isSuccessText.setText(successorfail);
         
-        //Number of dice rolled
-        TextView numDiceText = (TextView)findViewById(R.id.num_dice_field);
-        String numdice = String.valueOf(results.getTotalDice()); 
-        numDiceText.setText(numdice);
+        //Dice Display
+        ImageView diceView = (ImageView)findViewById(R.id.die_results_images);
+        Bitmap dieBm = Bitmap.createBitmap(128, 128, Bitmap.Config.ARGB_8888);
+        diceView.setImageBitmap(dieBm);
+        dieBm.eraseColor(Color.MAGENTA);
         
-        //The raw numbers that were rolled
-        TextView dieResultsText = (TextView)findViewById(R.id.die_results_field);
-        String dieresults = "";
-        for(int i : results.getResults()){
-        	dieresults += (String.valueOf(i) + " ");
-        } 
-        dieResultsText.setText(dieresults);
+//        //Number of dice rolled
+//        TextView numDiceText = (TextView)findViewById(R.id.num_dice_field);
+//        String numdice = String.valueOf(results.getTotalDice()); 
+//        numDiceText.setText(numdice);
+//        
+//        //The raw numbers that were rolled
+//        TextView dieResultsText = (TextView)findViewById(R.id.die_results_field);
+//        String dieresults = "";
+//        for(int i : results.getResults()){
+//        	dieresults += (String.valueOf(i) + " ");
+//        } 
+//        dieResultsText.setText(dieresults);
         
         //Difficulty of test earned
         TextView difficultyText = (TextView)findViewById(R.id.difficulty_field);
@@ -107,6 +116,7 @@ public class RollDisplayActivity extends Activity {
         obText.setText(ob);
         
         //Disable Artha buttons if Artha has been spent.
+        //TODO: Also disable if these results aren't the most recent in history.  
         Button deedsButton = (Button)findViewById(R.id.deeds_button);
         deedsButton.setEnabled(results.isDeedsAvailable());
         Button fateButton = (Button)findViewById(R.id.fate_button);

@@ -13,46 +13,54 @@
         android:textSize="60.0sp"
         />
 
-    <TextView
-        android:id="@+id/num_dice_label_field"
-        android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/die_results_images"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/is_success_field"
-        android:textIsSelectable = "true"
-        android:text="Total Dice Rolled:"
+        android:contentDescription="Die Results"
         />
     
-    <TextView
-        android:id="@+id/num_dice_field"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/num_dice_label_field"
-        android:textIsSelectable = "true"
-        />
+<!--     <TextView -->
+<!--         android:id="@+id/num_dice_label_field" -->
+<!--         android:layout_width="wrap_content" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:layout_below="@id/is_success_field" -->
+<!--         android:textIsSelectable = "true" -->
+<!--         android:text="Total Dice Rolled:" -->
+<!--         /> -->
     
-    <TextView
-        android:id="@+id/die_results_label_field"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/num_dice_field"
-        android:textIsSelectable = "true"
-        android:text="Die Results:"  
-        />
+<!--     <TextView -->
+<!--         android:id="@+id/num_dice_field" -->
+<!--         android:layout_width="wrap_content" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:layout_below="@id/num_dice_label_field" -->
+<!--         android:textIsSelectable = "true" -->
+<!--         /> -->
     
-    <TextView
-        android:id="@+id/die_results_field"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/die_results_label_field"
-        android:textIsSelectable = "true"  
-        />
+<!--     <TextView -->
+<!--         android:id="@+id/die_results_label_field" -->
+<!--         android:layout_width="match_parent" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:layout_below="@id/num_dice_field" -->
+<!--         android:textIsSelectable = "true" -->
+<!--         android:text="Die Results:"   -->
+<!--         /> -->
+    
+<!--     <TextView -->
+<!--         android:id="@+id/die_results_field" -->
+<!--         android:layout_width="match_parent" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:layout_below="@id/die_results_label_field" -->
+<!--         android:textIsSelectable = "true"   -->
+<!--         /> -->
     
     <TextView
         android:id="@+id/difficulty_label_field"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 	    android:textIsSelectable = "true"
-        android:layout_below="@id/die_results_field"
+        android:layout_below="@id/die_results_images"
         android:text="Difficulty:"  
 	    />    
     
