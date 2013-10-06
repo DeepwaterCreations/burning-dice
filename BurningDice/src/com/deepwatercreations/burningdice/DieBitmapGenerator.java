@@ -11,7 +11,7 @@ public class DieBitmapGenerator {
 	private int numdiceX = 6;
 	
 	public DieBitmapGenerator(Resources res, int bitmapId) {
-			sourceBitmap = BitmapFactory.decodeResource(res, bitmapId);
+			sourceBitmap = BitmapFactory.decodeResource(res, bitmapId); //TODO: Needs error handling
 			diewidth = sourceBitmap.getWidth() / numdiceX;
 			dieheight = sourceBitmap.getHeight();
 	}

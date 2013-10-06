@@ -8,7 +8,9 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -72,7 +74,35 @@ public class RollDisplayActivity extends Activity {
         
         //Dice Display
         ImageView diceView = (ImageView)findViewById(R.id.die_results_images);
-        diceView.setImageBitmap(bmpGenerator.getDieGraphic(results.getResults().get(0)));
+        
+        //TODO: Get these values from the graphics, rather than hard-coding them.
+        //TODO: Why is there a big, ugly margin between the dice and the text when there are multiple rows?
+        int dieWidth = 256;
+        int dieMargin = 8;
+        int maxRowDice = 5;
+        int numRows = (int)Math.ceil((float)results.getTotalDice()/maxRowDice);
+        Bitmap resultsBitmap = Bitmap.createBitmap((dieWidth + (2*dieMargin)) * Math.min(results.getTotalDice(), maxRowDice), 
+        											(dieWidth + (2*dieMargin)) * numRows, 
+        											Bitmap.Config.ARGB_8888);
+        Paint paint = new Paint();
+        Canvas canvas = new Canvas(resultsBitmap);
+        
+        int xPos;
+        int yPos;
+        //TODO: Think this over and see if there isn't a more elegant way of doing it. 
+        int finalRowOffset = (results.getResults().size() % maxRowDice) == 0 ? 0 : (maxRowDice - (results.getResults().size() % maxRowDice)) * ((dieWidth + (2*dieMargin))/2);
+        //Draws the die images to the canvas. 
+        for(int i = 0; i < results.getResults().size(); i++){
+        	xPos = ((i % maxRowDice) * (dieWidth + (2*dieMargin))) + dieMargin;
+        	if(i >= (numRows - 1) * maxRowDice && numRows > 1) //Trying to center the first row leads to issues.
+        		xPos += finalRowOffset; //This is to make the final row centered
+        	yPos = (dieWidth + (2*dieMargin)) * (i/maxRowDice);
+        	canvas.drawBitmap(bmpGenerator.getDieGraphic(results.getResults().get(i)), xPos, yPos, paint);
+        }
+        
+        diceView.setImageBitmap(resultsBitmap);
+        
+        //diceView.setImageBitmap(bmpGenerator.getDieGraphic(results.getResults().get(0)));
         //diceView.setImageResource(R.drawable.dice_test);
         //Bitmap dieBm = Bitmap.createBitmap(128, 128, Bitmap.Config.ARGB_8888);
         //Bitmap dieBm = BitmapFactory.decodeResource(R.drawable.dice_test, );
