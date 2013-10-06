@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,6 +22,7 @@ import android.support.v4.app.NavUtils;
 public class RollDisplayActivity extends Activity {
 
 	private Roll results;
+	private DieBitmapGenerator bmpGenerator;
 		
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class RollDisplayActivity extends Activity {
 
         Intent intent = getIntent();
         results = (Roll) intent.getSerializableExtra(MainActivity.EXTRA_ROLLRESULTS);
+        bmpGenerator = new DieBitmapGenerator(getResources(), R.drawable.dice_test);
         
         setupText();
         
@@ -69,9 +72,12 @@ public class RollDisplayActivity extends Activity {
         
         //Dice Display
         ImageView diceView = (ImageView)findViewById(R.id.die_results_images);
-        Bitmap dieBm = Bitmap.createBitmap(128, 128, Bitmap.Config.ARGB_8888);
-        diceView.setImageBitmap(dieBm);
-        dieBm.eraseColor(Color.MAGENTA);
+        diceView.setImageBitmap(bmpGenerator.getDieGraphic(results.getResults().get(0)));
+        //diceView.setImageResource(R.drawable.dice_test);
+        //Bitmap dieBm = Bitmap.createBitmap(128, 128, Bitmap.Config.ARGB_8888);
+        //Bitmap dieBm = BitmapFactory.decodeResource(R.drawable.dice_test, );
+        //diceView.setImageBitmap(dieBm);
+        //dieBm.eraseColor(Color.MAGENTA);
         
 //        //Number of dice rolled
 //        TextView numDiceText = (TextView)findViewById(R.id.num_dice_field);
