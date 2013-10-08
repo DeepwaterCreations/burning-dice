@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+    <!-- SUCCESS OR FAILURE -->
     <TextView
         android:id="@+id/is_success_field"
         android:layout_width="match_parent"
@@ -13,6 +14,7 @@
         android:textSize="60.0sp"
         />
 
+    <!-- DIE IMAGES -->
     <ImageView
         android:id="@+id/die_results_images"
         android:layout_width="match_parent"
@@ -20,93 +22,72 @@
         android:layout_below="@id/is_success_field"
         android:contentDescription="Die Results"
         />
-    
-<!--     <TextView -->
-<!--         android:id="@+id/num_dice_label_field" -->
-<!--         android:layout_width="wrap_content" -->
-<!--         android:layout_height="wrap_content" -->
-<!--         android:layout_below="@id/is_success_field" -->
-<!--         android:textIsSelectable = "true" -->
-<!--         android:text="Total Dice Rolled:" -->
-<!--         /> -->
-    
-<!--     <TextView -->
-<!--         android:id="@+id/num_dice_field" -->
-<!--         android:layout_width="wrap_content" -->
-<!--         android:layout_height="wrap_content" -->
-<!--         android:layout_below="@id/num_dice_label_field" -->
-<!--         android:textIsSelectable = "true" -->
-<!--         /> -->
-    
-<!--     <TextView -->
-<!--         android:id="@+id/die_results_label_field" -->
-<!--         android:layout_width="match_parent" -->
-<!--         android:layout_height="wrap_content" -->
-<!--         android:layout_below="@id/num_dice_field" -->
-<!--         android:textIsSelectable = "true" -->
-<!--         android:text="Die Results:"   -->
-<!--         /> -->
-    
-<!--     <TextView -->
-<!--         android:id="@+id/die_results_field" -->
-<!--         android:layout_width="match_parent" -->
-<!--         android:layout_height="wrap_content" -->
-<!--         android:layout_below="@id/die_results_label_field" -->
-<!--         android:textIsSelectable = "true"   -->
-<!--         /> -->
-    
+ 
+    <!-- RESULT NUMBERS --> 
     <TextView
-        android:id="@+id/difficulty_label_field"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-	    android:textIsSelectable = "true"
-        android:layout_below="@id/die_results_images"
-        android:text="Difficulty:"  
-	    />    
-    
-    <TextView
-        android:id="@+id/difficulty_field"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-	    android:textIsSelectable = "true"
-        android:layout_below="@id/difficulty_label_field"
-	    />        
-    
-    <TextView
-        android:id="@+id/num_success_label_field"
+        android:id="@+id/ob_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/difficulty_field"
-        android:text="Margin:"  
+        android:layout_below="@+id/die_results_images"
+        android:layout_centerHorizontal="true"
+        android:gravity="center" 
+        android:padding="8.0sp"
+        android:textSize="20.0sp"
         />
     
     <TextView
         android:id="@+id/num_success_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/num_success_label_field"
-        />
-
-    <TextView
-        android:id="@+id/ob_label_field"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/num_success_field"
-        android:text="Obstacle:"
+        android:layout_toLeftOf="@+id/ob_field"
+        android:layout_alignBaseline="@+id/ob_field"
+        android:gravity="center"
+        android:padding="8.0sp"
+        android:textSize="20.0sp"
         />
     
     <TextView
-        android:id="@+id/ob_field"
+        android:id="@+id/margin_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ob_label_field"
+        android:layout_toRightOf="@+id/ob_field"
+        android:layout_alignBaseline="@+id/ob_field"
+        android:gravity="center"
+        android:padding="8.0sp"
+        android:textSize="20.0sp"
         />
+    
+	<!-- TEST DIFFICULTY -->   
+    <TextView
+        android:id="@+id/difficulty_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+	    android:textIsSelectable = "true"
+        android:layout_below="@+id/ob_field"
+        android:padding="8.0sp" 
+        android:textSize="20.0sp"
+        android:layout_centerHorizontal="true"
+	    />        
+    
+    <!-- ARTHA BUTTONS -->
+
+    <ImageView
+        android:id="@+id/artha_button_spacer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/difficulty_field"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="}|{"
+        android:height="60.0sp"
+        android:padding="2.0sp"
+        android:width="4.0sp" />
     
     <Button
         android:id="@+id/fate_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/ob_field"
+        android:layout_toLeftOf="@+id/artha_button_spacer"
+        android:layout_below="@+id/difficulty_field"
         android:text="@string/fatebutton"
         android:onClick="spendFate"/>
 
@@ -114,9 +95,8 @@
         android:id="@+id/deeds_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/fate_button"
-        android:layout_alignBottom="@+id/fate_button"
-        android:layout_toRightOf="@+id/fate_button"
+        android:layout_toRightOf="@+id/artha_button_spacer"
+        android:layout_below="@+id/difficulty_field"
         android:text="@string/deedsbutton" 
         android:onClick="spendDeeds"/>
 

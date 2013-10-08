@@ -101,56 +101,44 @@ public class RollDisplayActivity extends Activity {
         }
         
         diceView.setImageBitmap(resultsBitmap);
-        
-        //diceView.setImageBitmap(bmpGenerator.getDieGraphic(results.getResults().get(0)));
-        //diceView.setImageResource(R.drawable.dice_test);
-        //Bitmap dieBm = Bitmap.createBitmap(128, 128, Bitmap.Config.ARGB_8888);
-        //Bitmap dieBm = BitmapFactory.decodeResource(R.drawable.dice_test, );
-        //diceView.setImageBitmap(dieBm);
-        //dieBm.eraseColor(Color.MAGENTA);
-        
-//        //Number of dice rolled
-//        TextView numDiceText = (TextView)findViewById(R.id.num_dice_field);
-//        String numdice = String.valueOf(results.getTotalDice()); 
-//        numDiceText.setText(numdice);
-//        
-//        //The raw numbers that were rolled
-//        TextView dieResultsText = (TextView)findViewById(R.id.die_results_field);
-//        String dieresults = "";
-//        for(int i : results.getResults()){
-//        	dieresults += (String.valueOf(i) + " ");
-//        } 
-//        dieResultsText.setText(dieresults);
-        
+             
         //Difficulty of test earned
         TextView difficultyText = (TextView)findViewById(R.id.difficulty_field);
-        String difficulty = "";
+        String difficulty = "Test Earned: ";
         switch(results.getDifficulty()){
         	case PLAYER_CHOICE:
-        		difficulty = "Routine or Difficult";
+        		difficulty += "Routine or Difficult";
         		break;
         	case ROUTINE:
-        		difficulty = "Routine";
+        		difficulty += "Routine";
         		break;
     		case DIFFICULT:
-    			difficulty = "Difficult";
+    			difficulty += "Difficult";
     			break;
     		case CHALLENGING:
-    			difficulty = "Challenging";
+    			difficulty += "Challenging";
     			break;
         } 
         difficultyText.setText(difficulty);
     
         //Number of Successes
         TextView numSuccessText = (TextView)findViewById(R.id.num_success_field);
-        String numsuccess = String.valueOf(results.getMargin());
+        String numsuccess = String.valueOf(results.getNumSuccesses());
+        numsuccess += "\nSuccesses";
         numSuccessText.setText(numsuccess);
         
         //Obstacle
         TextView obText = (TextView)findViewById(R.id.ob_field);
         String ob = String.valueOf(results.getObstacle());
+        ob += "\nObstacle";
         obText.setText(ob);
         
+        //Margin
+        TextView marginText = (TextView)findViewById(R.id.margin_field);
+        String margin = String.valueOf(results.getMargin());
+        margin += "\nMargin";
+        marginText.setText(margin);
+        		      
         //Disable Artha buttons if Artha has been spent.
         //TODO: Also disable if these results aren't the most recent in history.  
         Button deedsButton = (Button)findViewById(R.id.deeds_button);
