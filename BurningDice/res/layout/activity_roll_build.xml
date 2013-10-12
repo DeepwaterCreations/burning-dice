@@ -12,39 +12,20 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/title_activity_roll_build"
-        android:textSize="@dimen/padding_large" />
+        android:textSize="40.0sp" />
     
-    <RelativeLayout 
+   <RelativeLayout 
 	    android:id="@+id/RollBuildBaseLayout"
-	    android:layout_width="match_parent"
+	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
 	    tools:context=".RollBuildActivity" >
-		<!-- 
-	    <TextView
-	        android:id="@+id/build_dicenum_label"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignParentTop="true"
-	        android:layout_toRightOf="@+id/shade_spinner"
-	        android:text="@string/dicenum_label" />
-	         -->
-	
+
 	    <EditText
 	        android:id="@+id/build_exponent_input"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:inputType="number"
 	        android:hint="Exponent"/>
-	
-	    <!--  
-	    <TextView
-	        android:id="@+id/build_ob_label"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/build_dicenum"
-	        android:layout_toRightOf="@+id/shade_spinner"
-	        android:text="@string/ob_label" />
-	        -->
 	
 	    <EditText
 	        android:id="@+id/build_obstacle_input"
@@ -75,7 +56,7 @@
 
     <RelativeLayout
         android:id="@+id/RollBuildAddlDiceLayout"
-	    android:layout_width="match_parent"
+	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
 	    tools:context=".RollBuildActivity">
         
@@ -88,17 +69,18 @@
       	
   	    <CheckBox
 	        android:id="@+id/build_openended_checkbox"
-	        android:layout_width="fill_parent"
+	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:onClick="selectOpenEnded"
 	        android:layout_below="@+id/build_addldice_input"
-	        android:text="@string/openended_select" />
+	        android:text="@string/openended_select" 
+	        android:onClick="selectOpenEnded"
+	        />
         
     </RelativeLayout>
     
     <RelativeLayout
         android:id="@+id/RollBuildArthaLayout"
-	    android:layout_width="match_parent"
+	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
 	    tools:context=".RollBuildActivity">
 
@@ -118,7 +100,7 @@
   	    
   	    <CheckBox
 	        android:id="@+id/build_deeds_checkbox"
-	        android:layout_width="fill_parent"
+	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_below="@+id/build_boon_spinner"
 	        android:onClick="selectDeedsSpent"
@@ -131,6 +113,7 @@
         android:id="@+id/make_roll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:onClick="makeRoll"
         android:text="Roll!" />
 
