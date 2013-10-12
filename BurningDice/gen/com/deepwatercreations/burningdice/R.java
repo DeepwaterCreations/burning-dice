@@ -44,9 +44,8 @@ public final class R {
         public static final int build_shade_label=0x7f0a0012;
         public static final int build_shade_spinner=0x7f0a0013;
         public static final int buildroll_title=0x7f0a000e;
-        public static final int buildrollbutton=0x7f0a000c;
+        public static final int buildrollbutton=0x7f0a0001;
         public static final int deeds_button=0x7f0a0024;
-        public static final int diceNum=0x7f0a000a;
         public static final int die_results_images=0x7f0a001d;
         public static final int difficulty_field=0x7f0a0021;
         public static final int fate_button=0x7f0a0023;
@@ -56,17 +55,18 @@ public final class R {
         public static final int menu_settings=0x7f0a0025;
         public static final int num_success_field=0x7f0a001f;
         public static final int ob_field=0x7f0a001e;
-        public static final int qroll1=0x7f0a0000;
-        public static final int qroll10=0x7f0a0009;
-        public static final int qroll2=0x7f0a0001;
-        public static final int qroll3=0x7f0a0002;
-        public static final int qroll4=0x7f0a0003;
-        public static final int qroll5=0x7f0a0004;
-        public static final int qroll6=0x7f0a0005;
-        public static final int qroll7=0x7f0a0006;
-        public static final int qroll8=0x7f0a0007;
-        public static final int qroll9=0x7f0a0008;
-        public static final int roll=0x7f0a000b;
+        public static final int qroll1=0x7f0a0003;
+        public static final int qroll10=0x7f0a000c;
+        public static final int qroll2=0x7f0a0004;
+        public static final int qroll3=0x7f0a0005;
+        public static final int qroll4=0x7f0a0006;
+        public static final int qroll5=0x7f0a0007;
+        public static final int qroll6=0x7f0a0008;
+        public static final int qroll7=0x7f0a0009;
+        public static final int qroll8=0x7f0a000a;
+        public static final int qroll9=0x7f0a000b;
+        public static final int quickroll_label=0x7f0a0002;
+        public static final int title_label=0x7f0a0000;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -80,22 +80,21 @@ public final class R {
     }
     public static final class string {
         public static final int app_name=0x7f060000;
-        public static final int boonpick_label=0x7f060010;
-        public static final int buildroll_button_label=0x7f060009;
-        public static final int button_label=0x7f060002;
-        public static final int deeds_select=0x7f06000f;
-        public static final int deedsbutton=0x7f06000c;
-        public static final int dicenum_label=0x7f060008;
-        public static final int diceshade_label=0x7f06000d;
-        public static final int fatebutton=0x7f06000b;
-        public static final int hello_world=0x7f060001;
-        public static final int menu_settings=0x7f060003;
-        public static final int ob_label=0x7f06000a;
-        public static final int openended_select=0x7f06000e;
-        public static final int title_activity_main=0x7f060004;
-        public static final int title_activity_roll_build=0x7f060007;
-        public static final int title_activity_roll_display=0x7f060006;
-        public static final int title_activity_rolldisplay=0x7f060005;
+        public static final int boonpick_label=0x7f06000f;
+        public static final int buildroll_button_label=0x7f060008;
+        public static final int button_label=0x7f060001;
+        public static final int deeds_select=0x7f06000e;
+        public static final int deedsbutton=0x7f06000b;
+        public static final int dicenum_label=0x7f060007;
+        public static final int diceshade_label=0x7f06000c;
+        public static final int fatebutton=0x7f06000a;
+        public static final int menu_settings=0x7f060002;
+        public static final int ob_label=0x7f060009;
+        public static final int openended_select=0x7f06000d;
+        public static final int title_activity_main=0x7f060003;
+        public static final int title_activity_roll_build=0x7f060006;
+        public static final int title_activity_roll_display=0x7f060005;
+        public static final int title_activity_rolldisplay=0x7f060004;
     }
     public static final class style {
         public static final int AppTheme=0x7f080000;

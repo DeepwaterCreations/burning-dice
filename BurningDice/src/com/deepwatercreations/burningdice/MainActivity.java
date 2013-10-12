@@ -49,9 +49,6 @@ public class MainActivity extends Activity {
         Button buttonq10 = (Button) findViewById(R.id.qroll10);
         buttonq10.setOnClickListener(mAddListener);
         
-        
-        Button buttonRoll = (Button)findViewById(R.id.roll);
-        buttonRoll.setOnClickListener(mAddListener);
     }
 
     private OnClickListener mAddListener = new OnClickListener(){
@@ -102,25 +99,6 @@ public class MainActivity extends Activity {
     			roll = new Roll(10);
     			makeRoll(roll);
     			break;
-        	
-    		
-    		case R.id.roll:
-    			diceNumTxt = (EditText)findViewById(R.id.diceNum);
-    			try{
-	    			int diceNum = Integer.parseInt(diceNumTxt.getText().toString());
-	    			roll = new Roll(diceNum);
-	    			diceNumTxt.setText("");
-	    			makeRoll(roll);
-    			}
-    			catch(NumberFormatException integertantrum){
-    				//Um... I have no idea what to put here!
-    				//Ideally, I should alert the user that they've done it wrong,
-    				//but I need another try/catch to throw up a toast. Right?
-    				
-    				//No, this isn't hard. Set an error string variable or something and show it in a toast AFTER the exception.
-    				
-    			}
-        		break;
     		}
     		
     	}

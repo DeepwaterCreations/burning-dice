@@ -1,21 +1,43 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
     <TextView
+        android:id="@+id/title_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_medium"
-        android:text="@string/hello_world"
-        tools:context=".MainActivity" />
-
-    <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:textSize="60.0sp"
+        android:text="@string/app_name"
+        />
+    
+    <Button 
+        android:id="@+id/buildrollbutton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/title_label"
+        android:textSize="30.0sp"
+        android:text="@string/buildroll_button_label"
+        android:onClick="gotoBuildRoll" />
+    
+    <TextView
+        android:id="@+id/quickroll_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/buildrollbutton"
+        android:textSize="20.0sp"
+        android:text="Quick Roll:"
+        />
+    
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/quickroll_label"
+        android:layout_centerHorizontal="true"
         android:orientation="vertical" >
 
         <Button
@@ -94,24 +116,8 @@
 
     </RelativeLayout>
 
-    <EditText
-        android:id="@+id/diceNum"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:ems="10" 
-        android:inputType="number"/>
 
-    <Button 
-        android:id="@+id/roll"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/button_label"/>
     
-    <Button 
-        android:id="@+id/buildrollbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/buildroll_button_label"
-        android:onClick="gotoBuildRoll" />
 
-</LinearLayout>
+
+</RelativeLayout>
