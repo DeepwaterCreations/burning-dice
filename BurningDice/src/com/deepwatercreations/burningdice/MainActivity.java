@@ -19,9 +19,7 @@ public class MainActivity extends Activity {
 	
 	 public final static String EXTRA_ROLLRESULTS = "com.deepwatercreations.burningdice.ROLLRESULTS";
 	
-	DBAdapter db = new DBAdapter(this);
-	Random dicebag = new Random();
-	EditText diceNumTxt;
+	//DBAdapter db = new DBAdapter(this);
 		
     @Override
     public void onCreate(Bundle savedInstanceState) {

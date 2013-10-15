@@ -37,8 +37,8 @@ public class RollBuildActivity extends Activity implements OnItemSelectedListene
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_roll_build);
 		// Show the Up button in the action bar.
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) 
-        	getActionBar().setDisplayHomeAsUpEnabled(true);
+//		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) 
+//        	getActionBar().setDisplayHomeAsUpEnabled(true);
 		
 		roll = new Roll();
 		
@@ -110,6 +110,8 @@ public class RollBuildActivity extends Activity implements OnItemSelectedListene
 		
 		roll.spendPersona(boonDice);
 		
+		roll.setShade(shade);
+				
 		Intent intent = new Intent(this, RollDisplayActivity.class); 		
 		intent.putExtra(EXTRA_ROLLRESULTS, roll);
 		roll.doRoll();
