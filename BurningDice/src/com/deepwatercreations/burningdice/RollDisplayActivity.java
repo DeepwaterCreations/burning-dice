@@ -30,9 +30,9 @@ public class RollDisplayActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_roll_display);
-        // Make sure we're running on Honeycomb or higher to use ActionBar APIs
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) 
-//        	getActionBar().setDisplayHomeAsUpEnabled(true);
+        // Add the up button to the action bar.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) 
+        	getActionBar().setDisplayHomeAsUpEnabled(true);
 
         Intent intent = getIntent();
         results = (Roll) intent.getSerializableExtra(MainActivity.EXTRA_ROLLRESULTS);
@@ -77,6 +77,7 @@ public class RollDisplayActivity extends Activity {
         
         //TODO: Get these values from the graphics, rather than hard-coding them.
         //TODO: Why is there a big, ugly margin between the dice and the text when there are multiple rows?
+        //It appears to also be impacted by the number of dice in the first row. 
         int dieWidth = 256;
         int dieMargin = 8;
         int maxRowDice = 5;
@@ -99,7 +100,7 @@ public class RollDisplayActivity extends Activity {
         	yPos = (dieWidth + (2*dieMargin)) * (i/maxRowDice);
         	canvas.drawBitmap(bmpGenerator.getDieGraphic(results.getResults().get(i)), xPos, yPos, paint);
         }
-        
+
         diceView.setImageBitmap(resultsBitmap);
              
         //Difficulty of test earned

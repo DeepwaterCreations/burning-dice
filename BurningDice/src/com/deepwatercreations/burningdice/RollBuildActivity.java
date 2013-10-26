@@ -115,6 +115,7 @@ public class RollBuildActivity extends Activity implements OnItemSelectedListene
 		Intent intent = new Intent(this, RollDisplayActivity.class); 		
 		intent.putExtra(EXTRA_ROLLRESULTS, roll);
 		roll.doRoll();
+		roll = new Roll(); //Reset the roll object in case we come back to this activity.
 		startActivity(intent);
 	}
 
