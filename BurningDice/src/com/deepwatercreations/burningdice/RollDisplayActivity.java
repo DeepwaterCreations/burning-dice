@@ -90,8 +90,10 @@ public class RollDisplayActivity extends Activity {
         
         int xPos;
         int yPos;
-        //TODO: Think this over and see if there isn't a more elegant way of doing it. 
-        int finalRowOffset = (results.getResults().size() % maxRowDice) == 0 ? 0 : (maxRowDice - (results.getResults().size() % maxRowDice)) * ((dieWidth + (2*dieMargin))/2);
+        //TODO: Think this over and see if there isn't a more elegant way of doing it.
+        //Finds the number of dice short of a full row for the last row and multiplies by half a die width.
+        int lastRowNumDice = results.getResults().size() % maxRowDice;
+        int finalRowOffset = (lastRowNumDice == 0) ? 0 : (maxRowDice - lastRowNumDice) * ((dieWidth + (2*dieMargin))/2);
         //Draws the die images to the canvas. 
         for(int i = 0; i < results.getResults().size(); i++){
         	xPos = ((i % maxRowDice) * (dieWidth + (2*dieMargin))) + dieMargin;
