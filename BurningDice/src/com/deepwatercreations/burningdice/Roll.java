@@ -20,16 +20,18 @@ public class Roll implements Serializable{
 
 	private Random dicebag;
 	
-	private int exponent;
+	private int exponent; //Root Stat for Beginner's Luck
 	private int extraDice = 0;
 	private int arthaDice = 0;
 	
-	private int obstacle;
+	private int obstacle; //Base Obstacle for Beginner's Luck
+	private int disadvantages = 0; 	//For Beginner's Luck only.
 	private int diceShade = 4; //Gray is 3, White is 2.
 	private ArrayList<Integer> results;
 	private int successes = 0;
 	private Difficulty difficulty;
 	
+	private boolean beginnersLuck = false; 
 	private boolean openEnded = false;
 	private boolean rollMade = false; 
 	
@@ -69,6 +71,15 @@ public class Roll implements Serializable{
 		return obstacle;
 	}
 	
+	public void setDisadvantage(int ob){
+		if(ob > 0)
+			disadvantages = ob;
+	} 
+	
+	public int getDisadvantage(){
+		return disadvantages; 			
+	}
+	
 	public void setShade(int shade){
 		assert(shade >= 2 && shade <= 4);
 		diceShade = shade;
@@ -76,6 +87,14 @@ public class Roll implements Serializable{
 	
 	public int getShade(){
 		return diceShade;
+	}
+	
+	public void setBeginnersLuck(boolean bl){
+		beginnersLuck = bl;
+	}	
+	
+	public boolean getBeginnersLuck(){
+		return beginnersLuck;
 	}
 	
 	public Difficulty getDifficulty(){
@@ -118,7 +137,9 @@ public class Roll implements Serializable{
 				if(openEnded && rollnum == 6)
 					extraDice++; //Fate hasn't been spent yet, so this is Steel or something.
 			}
-			difficulty = DifficultyLookup.getDifficulty(exponent + extraDice, obstacle);
+			//Note: The line below is correct for Beginner's Luck. Difficulty of Routine means the test goes toward
+			//learning the skill.
+			difficulty = DifficultyLookup.getDifficulty(exponent + extraDice, obstacle + disadvantages);
 			rollMade = true;
 			deedsSpent = false; //Deeds can be spent again after the roll.  
 		}
@@ -141,7 +162,10 @@ public class Roll implements Serializable{
 	 * @return The margin of success or failure. If the number is 0 or positive, the roll beat the obstacle. 
 	 */
 	public int getMargin(){
-		return successes - obstacle;		
+		if(!beginnersLuck) 
+			return successes - obstacle;		
+		else
+			return successes - ((obstacle * 2) + disadvantages);
 	}
 	
 	public int getNumSuccesses(){

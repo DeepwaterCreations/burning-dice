@@ -113,13 +113,22 @@ public class RollDisplayActivity extends Activity {
         		difficulty += "Routine or Difficult";
         		break;
         	case ROUTINE:
-        		difficulty += "Routine";
+        		if(!results.getBeginnersLuck())
+        			difficulty += "Routine";
+        		else
+        			difficulty += "Learn Skill";
         		break;
     		case DIFFICULT:
-    			difficulty += "Difficult";
+    			if(!results.getBeginnersLuck())
+    				difficulty += "Difficult";
+    			else
+    				difficulty += "Difficult for Root Stat";
     			break;
     		case CHALLENGING:
-    			difficulty += "Challenging";
+    			if(!results.getBeginnersLuck())
+    				difficulty += "Challenging";
+    			else
+    				difficulty += "Challenging for Root Stat";
     			break;
         } 
         difficultyText.setText(difficulty);
@@ -132,7 +141,11 @@ public class RollDisplayActivity extends Activity {
         
         //Obstacle
         TextView obText = (TextView)findViewById(R.id.ob_field);
-        String ob = String.valueOf(results.getObstacle());
+        String ob;
+        if(!results.getBeginnersLuck())
+        	ob = String.valueOf(results.getObstacle());
+        else
+        	ob = String.valueOf((results.getObstacle() * 2) + results.getDisadvantage());        	
         ob += "\nObstacle";
         obText.setText(ob);
         

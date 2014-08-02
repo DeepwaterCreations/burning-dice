@@ -15,6 +15,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
+import android.widget.ToggleButton;
 import android.support.v4.app.NavUtils;
 
 @SuppressLint("NewApi")
@@ -56,6 +57,9 @@ public class RollBuildActivity extends Activity implements OnItemSelectedListene
 		boonspinner.setAdapter(boonadapter);
 		boonspinner.setOnItemSelectedListener(this);
 				
+		EditText disadvField = (EditText)findViewById(R.id.build_disadvantage_input);
+		disadvField.setVisibility(View.GONE);//Only show this for Beginner's Luck.
+		
 	}
 
 	@Override
@@ -98,6 +102,10 @@ public class RollBuildActivity extends Activity implements OnItemSelectedListene
 			EditText obField = (EditText)findViewById(R.id.build_obstacle_input);
 			int obstacle = Integer.parseInt(obField.getText().toString());
 			roll.setObstacle(obstacle);
+			
+			EditText disadvField = (EditText)findViewById(R.id.build_disadvantage_input);
+			int disadvantage = Integer.parseInt(disadvField.getText().toString());
+			roll.setDisadvantage(disadvantage);
 			
 			EditText addlField = (EditText)findViewById(R.id.build_addldice_input);
 			int addl = Integer.parseInt(addlField.getText().toString());
@@ -144,6 +152,27 @@ public class RollBuildActivity extends Activity implements OnItemSelectedListene
 		spentDeeds = ((CheckBox)view).isChecked();		
 	}
 
+	public void toggleBeginnersLuck(View view){
+		EditText expField = (EditText)findViewById(R.id.build_exponent_input);
+		EditText obField = (EditText)findViewById(R.id.build_obstacle_input);
+		EditText disadvField = (EditText)findViewById(R.id.build_disadvantage_input);
+		
+		if(((ToggleButton) view).isChecked()){
+			roll.setBeginnersLuck(true);
+			//Also change the hint text on the text fields and enable the Disadvantage field.
+			expField.setHint(R.string.expfield_bl_hint);
+			obField.setHint(R.string.obfield_bl_hint);
+			disadvField.setVisibility(View.VISIBLE);
+		}		
+		else{
+			roll.setBeginnersLuck(false);
+			expField.setHint(R.string.expfield_hint);
+			obField.setHint(R.string.obfield_hint);
+			disadvField.setVisibility(View.GONE);
+			roll.setDisadvantage(0);
+		}
+	}
+	
 	@Override
 	public void onNothingSelected(AdapterView<?> arg0) {
 		// TODO Auto-generated method stub

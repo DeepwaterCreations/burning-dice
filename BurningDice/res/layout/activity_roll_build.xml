@@ -19,22 +19,41 @@
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
 	    tools:context=".RollBuildActivity" >
+	    
+       <ToggleButton 
+           android:id="@+id/build_beginners_luck_toggle"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textOn="Beginner's Luck"
+           android:textOff="Beginner's Luck"
+           android:onClick="toggleBeginnersLuck"/>
 
 	    <EditText
 	        android:id="@+id/build_exponent_input"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/build_beginners_luck_toggle"
 	        android:inputType="number"
-	        android:hint="Exponent"/>
+	        android:hint="@string/expfield_hint"/>
 	
 	    <EditText
 	        android:id="@+id/build_obstacle_input"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_toRightOf="@+id/build_exponent_input"
+	        android:layout_below="@+id/build_beginners_luck_toggle"
 	        android:inputType="number" 
-	        android:hint="Obstacle"/>
-	      
+	        android:hint="@string/obfield_hint"/>
+	    
+	    <EditText 
+	        android:id="@+id/build_disadvantage_input"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_toRightOf="@+id/build_obstacle_input"
+	        android:layout_below="@+id/build_beginners_luck_toggle"
+	        android:inputType="number"
+	        android:hint="@string/disadvfield_hint" />
+	        
     	<TextView
 	        android:id="@+id/build_shade_label"
 	        android:layout_width="wrap_content"

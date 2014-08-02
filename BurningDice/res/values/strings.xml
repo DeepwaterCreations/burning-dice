@@ -17,6 +17,11 @@
     <string name="openended_select">Roll is Open-Ended</string>
     <string name="deeds_select">Spend Deeds to Double Exponent</string>
     <string name="boonpick_label">Persona Spent:</string>
+    <string name="expfield_hint">Exponent</string>
+    <string name="expfield_bl_hint">Root Stat</string>
+    <string name="obfield_hint">Obstacle</string>
+    <string name="obfield_bl_hint">Base Obstacle</string>
+    <string name="disadvfield_hint">Disadvantage</string>
     <string-array name="dieshades_array">
     	<item>B</item>
     	<item>G</item>
