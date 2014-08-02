@@ -15,7 +15,7 @@ was successful and what kind of test was earned (DONE)</li>
 <li>Specify which dice come from Artha, as well as other die sources (advantage, FoRKs, working carefully, help) (DONE)</li>
 <li>Spend Fate and Deeds points after the roll results are generated to open the roll or reroll failures (DONE)</li>
 <li>Specify Versus or Graduated tests</li>
-<li>Specify Beginner's Luck tests and receive accurate information about the test earned</li>
+<li>Specify Beginner's Luck tests and receive accurate information about the test earned</li> (DONE)
 <li>Nice-looking graphics with custom button images and so-forth</li>
 <li>Review a log of recent rolls, possibly with notes about what the roll was for</li>
 <li>Roll dice in a way that is graphically interesting and fun</li>
