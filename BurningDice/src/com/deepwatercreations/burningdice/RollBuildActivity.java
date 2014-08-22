@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.ToggleButton;
@@ -41,7 +43,16 @@ public class RollBuildActivity extends Activity implements OnItemSelectedListene
 //		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) 
 //        	getActionBar().setDisplayHomeAsUpEnabled(true);
 		
+		Typeface headerfont = Typeface.createFromAsset(getAssets(), "HamletOrNot.ttf");
+		Typeface regularfont = Typeface.createFromAsset(getAssets(), "TheanoOldStyle-Regular.ttf");
+						
 		roll = new Roll();
+		
+		//Todo: Use Styles, however they work. styles.xml, possibly just CSS?
+		//I also want all the button and stuff to get fonts, and I want this title to be in BWG Red.
+		//Use Liberation Serif bold+italics for the app's front page title - it matches the Burning Wheel
+		//book cover title.
+		((TextView)findViewById(R.id.buildroll_title)).setTypeface(headerfont);
 		
 		Spinner shadespinner = (Spinner) findViewById(R.id.build_shade_spinner);
 		ArrayAdapter<CharSequence> shadeadapter = ArrayAdapter.createFromResource(this,
