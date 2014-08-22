@@ -9,10 +9,12 @@ import android.view.MenuItem;
 import android.support.v4.app.NavUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.view.View;
 
 public class MainActivity extends Activity {
@@ -25,6 +27,9 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        Typeface titlefont = Typeface.createFromAsset(getAssets(), "LiberationSerif-BoldItalic.ttf");
+        ((TextView)findViewById(R.id.title_label)).setTypeface(titlefont);
         
         Button buttonq1 = (Button) findViewById(R.id.qroll1);
         buttonq1.setOnClickListener(mAddListener);

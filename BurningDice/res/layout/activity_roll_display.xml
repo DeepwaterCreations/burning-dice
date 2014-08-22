@@ -83,6 +83,7 @@
         android:width="4.0sp" />
     
     <Button
+        style="@style/AppTheme.Button" 
         android:id="@+id/fate_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -92,6 +93,7 @@
         android:onClick="spendFate"/>
 
     <Button
+        style="@style/AppTheme.Button" 
         android:id="@+id/deeds_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

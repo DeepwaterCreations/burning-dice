@@ -15,7 +15,9 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
+        public static final int dark_gold=0x7f040003;
         public static final int failure_red=0x7f040000;
+        public static final int light_gold=0x7f040002;
         public static final int success_green=0x7f040001;
     }
     public static final class dimen {
@@ -105,5 +107,7 @@ public final class R {
     }
     public static final class style {
         public static final int AppTheme=0x7f080000;
+        public static final int AppTheme_Button=0x7f080001;
+        public static final int AppTheme_Regular=0x7f080002;
     }
 }
