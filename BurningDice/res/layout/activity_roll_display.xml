@@ -21,6 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/is_success_field"
         android:contentDescription="Die Results"
+        android:adjustViewBounds="true"
         />
  
     <!-- RESULT NUMBERS --> 
