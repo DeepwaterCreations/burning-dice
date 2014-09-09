@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:textSize="60.0sp"
+        android:textSize="50.0sp"
         android:text="@string/app_name"
         />
         
@@ -114,7 +114,6 @@
             android:layout_below="@+id/qroll4"
             android:layout_toRightOf="@+id/qroll4"
             android:text="10" />
-
 
     </RelativeLayout>
 

@@ -76,8 +76,6 @@ public class RollDisplayActivity extends Activity {
         ImageView diceView = (ImageView)findViewById(R.id.die_results_images);
         
         //TODO: Get these values from the graphics, rather than hard-coding them.
-        //TODO: Why is there a big, ugly margin between the dice and the text when there are multiple rows?
-        //It appears to also be impacted by the number of dice in the first row. 
         int dieWidth = 256;
         int dieMargin = 8;
         int maxRowDice = 5;
