@@ -20,4 +20,11 @@ public class DieBitmapGenerator {
 		return Bitmap.createBitmap(sourceBitmap, (dieValue - 1) * diewidth, 0, diewidth, dieheight)	;	
 	}
 	
+	public int getWidth(){
+		return diewidth;
+	}
+	public int getHeight(){
+		return dieheight;
+	}
+	
 }

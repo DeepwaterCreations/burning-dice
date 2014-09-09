@@ -75,8 +75,7 @@ public class RollDisplayActivity extends Activity {
         //Dice Display
         ImageView diceView = (ImageView)findViewById(R.id.die_results_images);
         
-        //TODO: Get these values from the graphics, rather than hard-coding them.
-        int dieWidth = 256;
+        int dieWidth = bmpGenerator.getWidth(); //We assume height is the same.
         int dieMargin = 8;
         int maxRowDice = 5;
         int numRows = (int)Math.ceil((float)results.getTotalDice()/maxRowDice);
