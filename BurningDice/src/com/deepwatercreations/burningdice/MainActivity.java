@@ -119,6 +119,11 @@ public class MainActivity extends Activity {
     	startActivity(intent);
     }
     
+    public void gotoAbout(View view){
+    	Intent intent = new Intent(this, AboutActivity.class);
+    	startActivity(intent);
+    }
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_main, menu);

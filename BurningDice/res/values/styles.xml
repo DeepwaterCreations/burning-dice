@@ -1,9 +1,10 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <color name="light_gold">#E1D0B5</color>
     <color name="dark_gold">#AE9C5A</color>
     <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <item name="android:textColor">#BB1916</item> <!-- Dark Red -->
+        <item name="android:textColorLink">#660000</item>
         <item name="android:windowBackground">@color/light_gold</item>
         <item name="android:colorBackground">@color/light_gold</item>
    	</style>

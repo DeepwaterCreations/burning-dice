@@ -4,10 +4,20 @@
     <string name="app_name">Burning Dice</string>
     <string name="button_label">Roll</string>
     <string name="menu_settings">Settings</string>
+    
     <string name="title_activity_main">Burning Dice</string>
+ 	<string name="title_activity_about">About Burning Dice</string>   
     <string name="title_activity_rolldisplay">Burning Dice: Roll Results</string>
     <string name="title_activity_roll_display">RollDisplayActivity</string>
     <string name="title_activity_roll_build">Build Your Roll</string>
+    
+    <string name="about_header">Burning Dice</string>
+    <string name="about_version">Ver. 0.9</string>
+    <string name="about_info">An unofficial die-roller app for the Burning Wheel family of tabletop roleplaying games.</string>
+    <string name="about_contact">Comments or Questions: Dylan.Craine@deepwatercreations.com</string>
+    <string name="about_DC_url">Check out my website at: www.deepwatercreations.com</string>
+    <string name="about_BW_url">Official Burning Wheel website: www.burningwheel.org</string>
+    
     <string name="dicenum_label">Skill/Stat Exponent:</string>
     <string name="buildroll_button_label">Build Roll</string>
     <string name="ob_label">Obstacle:</string>

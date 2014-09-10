@@ -23,6 +23,13 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.deepwatercreations.burningdice.AboutActivity"
+            android:label="@string/title_activity_about" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.deepwatercreations.burningdice.MainActivity" />
+        </activity>
+        <activity
             android:name="com.deepwatercreations.burningdice.RollDisplayActivity"
             android:label="@string/title_activity_roll_display" >
             <meta-data
