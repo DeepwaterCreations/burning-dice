@@ -54,7 +54,7 @@ public class Roll implements Serializable{
 	}
 	
 	public void setExponent(int exp){
-		if(exp > 0)
+		if(exp >= 0) //We might have a 0 exp if a player is rolling Resources with cash dice, for example. 
 			exponent = exp;
 	}	
 
@@ -72,7 +72,7 @@ public class Roll implements Serializable{
 	}
 	
 	public void setDisadvantage(int ob){
-		if(ob > 0)
+		if(ob >= 0)
 			disadvantages = ob;
 	} 
 	

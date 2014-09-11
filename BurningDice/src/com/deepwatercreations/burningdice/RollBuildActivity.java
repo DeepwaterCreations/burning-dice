@@ -4,6 +4,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.view.Menu;
@@ -17,6 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 import android.support.v4.app.NavUtils;
 
@@ -107,35 +109,69 @@ public class RollBuildActivity extends Activity implements OnItemSelectedListene
 	public void makeRoll(View view){
 		try{
 			EditText expField = (EditText)findViewById(R.id.build_exponent_input);
-			int exponent = Integer.parseInt(expField.getText().toString());
-			roll.setExponent(exponent);
+			if(expField.length() > 0){ 
+				int exponent = Integer.parseInt(expField.getText().toString());
+				roll.setExponent(exponent);
+			} else {
+				//Perhaps the character has exp 0 resources and is using cash dice.
+				roll.setExponent(0);
+			}
 			
 			EditText obField = (EditText)findViewById(R.id.build_obstacle_input);
-			int obstacle = Integer.parseInt(obField.getText().toString());
-			roll.setObstacle(obstacle);
+			if(obField.length() > 0){
+				int obstacle = Integer.parseInt(obField.getText().toString());
+				roll.setObstacle(obstacle);
+			} else {
+				roll.setObstacle(1); //Just like a quick roll.
+			}
 			
-			EditText disadvField = (EditText)findViewById(R.id.build_disadvantage_input);
-			int disadvantage = Integer.parseInt(disadvField.getText().toString());
-			roll.setDisadvantage(disadvantage);
+			if(roll.getBeginnersLuck()){
+				EditText disadvField = (EditText)findViewById(R.id.build_disadvantage_input);
+				if(disadvField.length() > 0){
+					int disadvantage = Integer.parseInt(disadvField.getText().toString());
+					roll.setDisadvantage(disadvantage);
+				} else {
+					roll.setDisadvantage(0);
+				}				
+			}
 			
 			EditText addlField = (EditText)findViewById(R.id.build_addldice_input);
-			int addl = Integer.parseInt(addlField.getText().toString());
-			roll.addDice(addl);
+			if(addlField.length() > 0){
+				int addl = Integer.parseInt(addlField.getText().toString());
+				roll.addDice(addl);
+			} else {
+				roll.addDice(0);
+			}
 		}
-		catch(NumberFormatException integertantrum){}
+		catch(NumberFormatException integertantrum){
+			Context context = getApplicationContext();
+			CharSequence text = "Number Format Exception";
+			int duration = Toast.LENGTH_SHORT;
+
+			Toast.makeText(context, text, duration).show();			
+		}
 		
-		if(spentDeeds)
-			roll.spendDeeds();
-		
-		roll.spendPersona(boonDice);
-		
-		roll.setShade(shade);
-				
-		Intent intent = new Intent(this, RollDisplayActivity.class); 		
-		intent.putExtra(EXTRA_ROLLRESULTS, roll);
-		roll.doRoll();
-		roll = new Roll(); //Reset the roll object in case we come back to this activity.
-		startActivity(intent);
+		//Make sure they have at least one die between exponent and advantage.
+		if(roll.getTotalDice() < 1){
+			Context context = getApplicationContext();
+			CharSequence text = "You need at least one die to roll!";
+			int duration = Toast.LENGTH_SHORT;
+
+			Toast.makeText(context, text, duration).show();			
+		} else {	//If they do, finish setting up	the roll and make it happen.	
+			if(spentDeeds)
+				roll.spendDeeds();
+			
+			roll.spendPersona(boonDice);
+			
+			roll.setShade(shade);
+					
+			Intent intent = new Intent(this, RollDisplayActivity.class); 		
+			intent.putExtra(EXTRA_ROLLRESULTS, roll);
+			roll.doRoll();
+			roll = new Roll(); //Reset the roll object in case we come back to this activity.
+			startActivity(intent);
+		}
 	}
 
 
