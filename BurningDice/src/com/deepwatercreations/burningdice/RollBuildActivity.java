@@ -37,6 +37,7 @@ public class RollBuildActivity extends Activity implements OnItemSelectedListene
 	int boonDice = 0;
 	boolean spentDeeds = false;
 	boolean openEnded = false;
+	boolean beginnersLuck = false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -126,7 +127,8 @@ public class RollBuildActivity extends Activity implements OnItemSelectedListene
 				roll.setObstacle(1); //Just like a quick roll.
 			}
 			
-			if(roll.getBeginnersLuck()){
+			if(beginnersLuck){
+				roll.setBeginnersLuck(true);
 				EditText disadvField = (EditText)findViewById(R.id.build_disadvantage_input);
 				if(disadvField.length() > 0){
 					int disadvantage = Integer.parseInt(disadvField.getText().toString());
@@ -207,18 +209,18 @@ public class RollBuildActivity extends Activity implements OnItemSelectedListene
 		EditText disadvField = (EditText)findViewById(R.id.build_disadvantage_input);
 		
 		if(((ToggleButton) view).isChecked()){
-			roll.setBeginnersLuck(true);
+			beginnersLuck = true;
 			//Also change the hint text on the text fields and enable the Disadvantage field.
 			expField.setHint(R.string.expfield_bl_hint);
 			obField.setHint(R.string.obfield_bl_hint);
 			disadvField.setVisibility(View.VISIBLE);
 		}		
 		else{
-			roll.setBeginnersLuck(false);
+			beginnersLuck = false;
 			expField.setHint(R.string.expfield_hint);
 			obField.setHint(R.string.obfield_hint);
 			disadvField.setVisibility(View.GONE);
-			roll.setDisadvantage(0);
+			//roll.setDisadvantage(0);
 		}
 	}
 	
