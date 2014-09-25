@@ -35,7 +35,8 @@ public class RollBuildActivity extends Activity implements OnItemSelectedListene
 	Roll roll;
 	int shade;
 	int boonDice = 0;
-	boolean spentDeeds;
+	boolean spentDeeds = false;
+	boolean openEnded = false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -166,6 +167,8 @@ public class RollBuildActivity extends Activity implements OnItemSelectedListene
 			
 			roll.setShade(shade);
 					
+			roll.setOpenEnded(openEnded);
+			
 			Intent intent = new Intent(this, RollDisplayActivity.class); 		
 			intent.putExtra(EXTRA_ROLLRESULTS, roll);
 			roll.doRoll();
@@ -191,8 +194,7 @@ public class RollBuildActivity extends Activity implements OnItemSelectedListene
 	}
 	
 	public void selectOpenEnded(View view){
-		boolean openEnded = ((CheckBox)view).isChecked();
-		roll.setOpenEnded(openEnded);
+		openEnded = ((CheckBox)view).isChecked();
 	}
 	
 	public void selectDeedsSpent(View view){
